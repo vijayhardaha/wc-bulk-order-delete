@@ -71,13 +71,9 @@ final class WC_Bulk_Order_Delete {
 	 * @since 1.0.0
 	 */
 	private function init_hooks() {
-		register_activation_hook( WC_BULK_ORDER_DELETE_PLUGIN_FILE, array( $this, 'install' ) );
-
 		register_shutdown_function( array( $this, 'log_errors' ) );
 
 		add_action( 'admin_notices', array( $this, 'build_dependencies_notice' ) );
-		add_action( 'activated_plugin', array( $this, 'activated_plugin' ) );
-		add_action( 'deactivated_plugin', array( $this, 'deactivated_plugin' ) );
 
 		add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ), -1 );
 		add_action( 'init', array( $this, 'init' ), 0 );
