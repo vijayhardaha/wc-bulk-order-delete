@@ -1,0 +1,50 @@
+$white: #fff;
+$black : #000;
+$pink: #c9356e;
+$blue: #2264d1;
+$green: #2ea44f;
+$red: #d73a49;
+$light-blue: #d8e6ff;
+$blue-bg:#f5f8ff;
+$primary: $green;
+$secondary: $red;
+$text-color: #334669;
+
+$panel-bg: $white;
+$panel-box-shadow-color: #555d66;
+$panel-header-bg: $green;
+$panel-header-bg: #f7f5fa;
+$panel-footer-bg: #f6f8fa;
+$panel-title-color:$white;
+$panel-border-color: #e1e4e8;
+
+$panel-width: 510px;
+$panel-top-pad: 166px;
+$panel-top-pad-small: 92px;
+$panel-header-height: 65px;
+$panel-footer-height: 62px;
+
+$border-color: #e1e4e8;
+$date-picker-border-color: #e4e7e7;
+$border-radius: 4px;
+$btn-height: 32px;
+$input-height: 32px;
+
+$notice-colors: ("success": #4bd67b,
+  "info": #71b2df,
+  "warning": #f5c76f,
+  "error": #f57e7c,
+  "default": #6c757d,
+) !default;
+
+$notice-styles: ("filled", "outline", "semi-filled", "simple");
+
+$step-color: #e8dfd8;
+
+$prefix: ".wcbod";
+
+@mixin screen() {
+  @media (min-width: 783px) {
+    @content;
+  }
+}

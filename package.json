@@ -1,0 +1,35 @@
+{
+  "name": "wc-bulk-order-delete",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "prestart": "rm -rf dist",
+    "start": "wp-scripts start --output-path=dist",
+    "prebuild": "rm -rf dist",
+    "build": "wp-scripts build --output-path=dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayhardaha/wc-bulk-order-delete.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vijayhardaha/wc-bulk-order-delete/issues"
+  },
+  "homepage": "https://github.com/vijayhardaha/wc-bulk-order-delete#readme",
+  "devDependencies": {
+    "@wordpress/env": "^3.0.2",
+    "@wordpress/scripts": "^13.0.3"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react-datepicker": "^3.6.0",
+    "react-icons": "^4.2.0",
+    "react-loading-skeleton": "^2.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-spinners": "^0.10.6",
+    "react-spinners-kit": "^1.9.1"
+  }
+}

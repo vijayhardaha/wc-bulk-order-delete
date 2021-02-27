@@ -1,0 +1,147 @@
+select {
+  max-width: 100%;
+  height: $input-height;
+  padding: 6px 24px 5px 12px;
+  color: $text-color;
+
+  &.components-select-control__input {
+    &~.components-input-control__backdrop {
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      outline: 0 !important;
+      box-shadow: none;
+    }
+
+    &:focus {
+      &~.components-input-control__backdrop {
+        border-color: $primary;
+        outline: 0 !important;
+        box-shadow: 0 0 0 4px rgba($primary, 0.3) !important;
+      }
+    }
+  }
+}
+
+.components-input-control__label {
+  display: block;
+  margin: 0 0 2px 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+.components-base-control__field {
+  margin: 0;
+}
+
+.components-button {
+  position: relative;
+  height: $btn-height;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: stretch;
+  padding: 0;
+  color: $white;
+  border: 0;
+  border-radius: $border-radius;
+  outline: 0;
+  box-shadow: none;
+
+  span {
+    height: $btn-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    &.text {
+      padding: 6px 12px 6px 8px;
+    }
+
+    &.icon {
+      width: $btn-height;
+      background: rgba($black, 0.1);
+    }
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $white;
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &:active {
+    top: -2px;
+  }
+
+  &:not(.alt) {
+    background: $primary;
+
+    &:hover {
+      background: darken($primary, 5%);
+    }
+
+    &:focus {
+      background: darken($primary, 8%);
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0 4px rgba($primary, 0.3);
+    }
+  }
+
+  &.alt {
+    background: $secondary;
+
+    &:hover {
+      background: darken($secondary, 5%);
+    }
+
+    &:focus {
+      background: darken($secondary, 8%);
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0 4px rgba($secondary, 0.3);
+    }
+  }
+}
+
+.components-checkbox-control__input[type=checkbox] {
+  width: 16px;
+  min-width: 1px;
+  height: 16px;
+  border-color: $border-color;
+  border-radius: $border-radius;
+  outline: 0;
+  box-shadow: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($primary, 0.3);
+  }
+
+  &:checked {
+    border-color: $primary;
+    outline: 0;
+    background: $primary;
+    box-shadow: none;
+  }
+}
+
+svg.components-checkbox-control__checked {
+  width: 16px;
+  min-width: 1px;
+  height: 16px;
+
+  @media (min-width: 600px) {
+    top: 0;
+    left: 0;
+  }
+}
+
+.components-checkbox-control__input-container {
+  margin-right: 5px;
+}

@@ -1,0 +1,250 @@
+@import "./variables";
+
+@import "~react-datepicker/dist/react-datepicker.css";
+@import "./datepicker.scss";
+
+#wc-bulk-order-delete-root {
+  float: right;
+
+  @import "./components";
+  @import "./notice";
+  @import "./steps";
+
+  #{$prefix}__button {
+    position: relative;
+    height: $input-height;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: stretch;
+    padding: 0;
+    color: $white;
+    border: 0;
+    border-radius: $border-radius;
+    outline: 0;
+    background: $secondary;
+    box-shadow: none;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+
+      &.text {
+        padding: 6px 12px 6px 8px;
+      }
+
+      &.icon {
+        width: $input-height;
+        background: rgba($black, 0.1);
+      }
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: $white;
+      outline: 0;
+      box-shadow: none;
+    }
+
+    &:hover {
+      background: darken($secondary, 5%);
+    }
+
+    &:focus {
+      background: darken($secondary, 8%);
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0 4px rgba($secondary, 0.3);
+    }
+  }
+
+  #{$prefix}__panel-wrapper {
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1002;
+    top: $panel-top-pad;
+    right: 0;
+    width: $panel-width;
+    max-width: 100%;
+    height: calc(100vh - #{$panel-top-pad});
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+    transform: translateX(100%);
+    background: $panel-bg;
+
+    @include screen {
+      top: $panel-top-pad-small;
+
+      height: calc(100vh - #{$panel-top-pad-small});
+    }
+
+    &.is-open {
+      transform: none;
+      box-shadow: 0 12px 12px 0 rgba($panel-box-shadow-color, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+  }
+
+  #{$prefix}__panel-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #{$prefix}__panel-header {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    height: $panel-header-height;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 30px;
+    border-bottom: 1px solid $panel-border-color;
+    background: $panel-header-bg;
+  }
+
+  #{$prefix}__panel-footer {
+    position: sticky;
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    height: $panel-footer-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-top: 1px solid $panel-border-color;
+    background: $panel-footer-bg;
+  }
+
+  #{$prefix}__panel-body {
+    height: calc(100vh - (#{$panel-top-pad} + #{$panel-header-height} + #{$panel-footer-height}));
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 15px;
+
+    @include screen {
+      height: calc(100vh - (#{$panel-top-pad-small} + #{$panel-header-height} + #{$panel-footer-height}));
+    }
+  }
+
+  #{$prefix}__form-row {
+    &:not(:last-of-type) {
+      margin: 0 0 15px 0;
+      border-bottom: 1px solid $border-color;
+    }
+
+    &::after,
+    &::before {
+      display: table;
+      content: "";
+    }
+
+    &::after {
+      clear: both;
+    }
+  }
+
+  #{$prefix}__form-field {
+    float: left;
+    display: block;
+    margin: 0 0 15px 0;
+    padding-right: 15px;
+
+    &>label:first-of-type {
+      display: block;
+      margin: 0 0 2px 0;
+      padding: 0;
+      font-weight: 600;
+    }
+  }
+
+  #{$prefix}__desc {
+    margin: 3px 0 5px 0;
+    letter-spacing: 0.35px;
+    color: #aaa;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  #{$prefix}__checkbox-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+      width: 50%;
+      padding: 0 15px 0 0;
+
+      div {
+        margin-bottom: 0;
+      }
+
+      label {
+        vertical-align: top;
+      }
+    }
+  }
+
+  #{$prefix}__skeleton {
+    span {
+      border-radius: 0;
+    }
+  }
+
+  #{$prefix}__orders-summary {
+    padding: 15px;
+    border: 1px solid #E6E6E6;
+    border-radius: $border-radius;
+
+    li {
+      display: flex;
+      margin: 0;
+      padding: 20px 0;
+      letter-spacing: -.25px;
+      color: #888;
+      border: 0;
+      border-bottom: 1px solid #E6E6E6;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 22px;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .list-label {
+        flex: 1;
+        color: #333;
+        font-weight: 600;
+      }
+
+      span {
+        padding: 0 15px;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
