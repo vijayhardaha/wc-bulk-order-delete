@@ -1109,7 +1109,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-success .wc-bulk-delete__notice-icon {
   color: #fff;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-success .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #fff;
@@ -1124,7 +1123,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-success .wc-bulk-delete__notice-icon {
   color: #4bd67b;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-success .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #4bd67b;
@@ -1145,7 +1143,7 @@
   background-color: #fff;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-semi-filled-success .wc-bulk-delete__notice-icon .components-spinner::before {
-  background-color: #fff;
+  background-color: #4bd67b;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-success {
   color: #4bd67b;
@@ -1154,7 +1152,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-success .wc-bulk-delete__notice-icon {
   color: #4bd67b;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-success .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #4bd67b;
@@ -1169,7 +1166,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-info .wc-bulk-delete__notice-icon {
   color: #fff;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-info .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #fff;
@@ -1184,7 +1180,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-info .wc-bulk-delete__notice-icon {
   color: #71b2df;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-info .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #71b2df;
@@ -1205,7 +1200,7 @@
   background-color: #fff;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-semi-filled-info .wc-bulk-delete__notice-icon .components-spinner::before {
-  background-color: #fff;
+  background-color: #71b2df;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-info {
   color: #71b2df;
@@ -1214,7 +1209,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-info .wc-bulk-delete__notice-icon {
   color: #71b2df;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-info .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #71b2df;
@@ -1229,7 +1223,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-warning .wc-bulk-delete__notice-icon {
   color: #fff;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-warning .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #fff;
@@ -1244,7 +1237,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-warning .wc-bulk-delete__notice-icon {
   color: #f5c76f;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-warning .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #f5c76f;
@@ -1265,7 +1257,7 @@
   background-color: #fff;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-semi-filled-warning .wc-bulk-delete__notice-icon .components-spinner::before {
-  background-color: #fff;
+  background-color: #f5c76f;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-warning {
   color: #f5c76f;
@@ -1274,7 +1266,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-warning .wc-bulk-delete__notice-icon {
   color: #f5c76f;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-warning .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #f5c76f;
@@ -1289,7 +1280,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-error .wc-bulk-delete__notice-icon {
   color: #fff;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-error .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #fff;
@@ -1304,7 +1294,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-error .wc-bulk-delete__notice-icon {
   color: #f57e7c;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-error .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #f57e7c;
@@ -1325,7 +1314,7 @@
   background-color: #fff;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-semi-filled-error .wc-bulk-delete__notice-icon .components-spinner::before {
-  background-color: #fff;
+  background-color: #f57e7c;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-error {
   color: #f57e7c;
@@ -1334,7 +1323,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-error .wc-bulk-delete__notice-icon {
   color: #f57e7c;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-error .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #f57e7c;
@@ -1349,7 +1337,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-default .wc-bulk-delete__notice-icon {
   color: #fff;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-filled-default .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #fff;
@@ -1364,7 +1351,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-default .wc-bulk-delete__notice-icon {
   color: #6c757d;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-outline-default .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #6c757d;
@@ -1385,7 +1371,7 @@
   background-color: #fff;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-semi-filled-default .wc-bulk-delete__notice-icon .components-spinner::before {
-  background-color: #fff;
+  background-color: #6c757d;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-default {
   color: #6c757d;
@@ -1394,7 +1380,6 @@
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-default .wc-bulk-delete__notice-icon {
   color: #6c757d;
-  background: transparent;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice.wc-bulk-delete__notice-simple-default .wc-bulk-delete__notice-icon .components-spinner {
   background-color: #6c757d;
@@ -1425,8 +1410,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 40px;
-          flex: 0 0 40px;
+      -ms-flex: 0 0 52px;
+          flex: 0 0 52px;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__notice .wc-bulk-delete__notice-icon .components-spinner {
   margin: 0;
@@ -1470,7 +1455,7 @@
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 10px;
-  background: #e8dfd8;
+  background: #b9b7b7;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__steps .wc-bulk-delete__bar .wc-bulk-delete__bar-fill {
   width: 0;
@@ -1499,9 +1484,9 @@
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease;
   transition: 0.3s ease;
-  color: #c2aa98;
+  color: #fff;
   border-radius: 100%;
-  background: #e8dfd8;
+  background: #b9b7b7;
   font-size: 12px;
   line-height: 1;
 }
@@ -1513,9 +1498,8 @@
   -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
-  color: #c2aa98;
-  font-size: 12px;
-  font-weight: 600;
+  color: #878383;
+  font-size: 13px;
   line-height: 1;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__steps .wc-bulk-delete__point-complete .wc-bulk-delete__bullet,
@@ -1707,7 +1691,7 @@
   margin: 3px 0 5px 0;
   letter-spacing: 0.35px;
   color: #aaa;
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
 }
 #wc-bulk-order-delete-root .wc-bulk-delete__checkbox-group {

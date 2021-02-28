@@ -3,6 +3,12 @@
  */
 import { __, _n, sprintf } from "@wordpress/i18n";
 import { RawHTML } from "@wordpress/element";
+import { Button } from "@wordpress/components";
+
+/**
+ * External dependancies
+ */
+import { FiArrowLeft, FiTrash } from "react-icons/fi";
 
 /**
  * Internal dependancies
@@ -10,7 +16,7 @@ import { RawHTML } from "@wordpress/element";
 import { TEXT_DOMAIN } from "../../utils/constants";
 import Notice from "../../controls/notice";
 
-const ReviewStep = ({ loading, orders, setData }) => {
+const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 	const groupOrders = orders.reduce((order, current) => {
 		if (!order[current.status])
 			order[current.status] = { label: current.status_label, items: [] };
@@ -19,63 +25,97 @@ const ReviewStep = ({ loading, orders, setData }) => {
 	}, {});
 
 	return loading ? (
-		<>
-			<Notice status="info" type="outline" loading="true">
+		<div className="wc-bulk-delete__panel-body">
+			<Notice status="info" type="semi-filled" loading="true">
 				{__(
-					"Please wait, while we are matching shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.",
+					"Please wait, while we are finding shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.",
 					TEXT_DOMAIN
 				)}
 			</Notice>
-		</>
+		</div>
 	) : (
 		<>
-			{orders.length ? (
-				<>
-					<Notice status="success" type="filled">
-						<RawHTML>
-							{__(
-								`We have found <strong>${
-									orders.length
-								}</strong> shop orders with your select filters. here is small summary of orders by order status. Now you can delete the matched orders by click <strong>${__(
-									`"Delete Orders"`,
+			<div className="wc-bulk-delete__panel-body">
+			<Notice status="info" type="semi-filled" loading="true">
+				{__(
+					"Please wait, while we are finding shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.",
+					TEXT_DOMAIN
+				)}
+			</Notice>
+				{orders.length ? (
+					<>
+						<Notice status="success" type="semi-filled">
+							<RawHTML>
+								{__(
+									`<strong>${sprintf(
+										_n(
+											"%d shop order",
+											"%d shop orders",
+											orders.length,
+											TEXT_DOMAIN
+										),
+										orders.length
+									)}</strong> found from with your select filters. Short summary of orders by order status is given below. Please review and proceed to delete found orders by clicking <strong>${__(
+										`"Delete Orders"`,
+										TEXT_DOMAIN
+									)}</strong> button below.`,
 									TEXT_DOMAIN
-								)}</strong> button below.`,
+								)}
+							</RawHTML>
+						</Notice>
+						<ul className="wc-bulk-delete__orders-summary">
+							{Object.keys(groupOrders)
+								.sort()
+								.map((key) => {
+									const item = groupOrders[key];
+									return (
+										<li key={`order-list-status-${key}`}>
+											<span className="list-label">{item.label}</span>
+											<span className="list-status">
+												{sprintf(
+													_n(
+														"%d order",
+														"%d orders",
+														item.items.length,
+														TEXT_DOMAIN
+													),
+													item.items.length
+												)}
+											</span>
+										</li>
+									);
+								})}
+						</ul>
+					</>
+				) : (
+					<Notice status="error" type="filled">
+						<p>
+							{__(
+								"Sorry, no shop orders found from your selected filters.",
 								TEXT_DOMAIN
 							)}
-						</RawHTML>
+						</p>
 					</Notice>
-					<ul className="wc-bulk-delete__orders-summary">
-						{Object.keys(groupOrders).map((key) => {
-							const item = groupOrders[key];
-							return (
-								<li key={`order-list-status-${key}`}>
-									<span className="list-label">{item.label}</span>
-									<span className="list-status">
-										{sprintf(
-											_n(
-												"%d order",
-												"%d orders",
-												item.items.length,
-												TEXT_DOMAIN
-											),
-											item.items.length
-										)}
-									</span>
-								</li>
-							);
-						})}
-					</ul>
-				</>
-			) : (
-				<Notice status="error" type="filled">
-					<p>
-						{__(
-							"Sorry, we didn't any found any matched shop orders with your selected filters.",
-							TEXT_DOMAIN
-						)}
-					</p>
-				</Notice>
-			)}
+				)}
+			</div>
+			<div className="wc-bulk-delete__panel-footer">
+				<Button onClick={() => setStep(1)}>
+					<span className="icon">
+						<FiArrowLeft />
+					</span>
+					<span className="text">{__("Go Back", TEXT_DOMAIN)}</span>
+				</Button>
+				{orders.length ? (
+					<Button className="alt">
+						<span className="icon">
+							<FiTrash />
+						</span>
+						<span class="text">{__("Delete Orders", TEXT_DOMAIN)}</span>
+					</Button>
+				) : (
+					<></>
+				)}
+			</div>
 		</>
 	);
 };

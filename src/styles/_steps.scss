@@ -38,7 +38,7 @@
     align-items: center;
     justify-content: center;
     transition: 0.3s ease;
-    color: darken($step-color, 20%);
+    color: $white;
     border-radius: 100%;
     background: $step-color;
     font-size: 12px;
@@ -52,8 +52,7 @@
     margin: 6px 0 0 0;
     transform: translate(-50%, 0);
     color: darken($step-color, 20%);
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
     line-height: 1;
   }
 

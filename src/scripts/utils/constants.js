@@ -68,8 +68,4 @@ export const STEPS = [
 		number: 3,
 		label: __("Delete", TEXT_DOMAIN),
 	},
-	{
-		number: 4,
-		label: __("Complete", TEXT_DOMAIN),
-	},
 ];

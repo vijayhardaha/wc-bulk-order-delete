@@ -30134,70 +30134,6 @@ var Wrapper = function Wrapper() {
 
 /***/ }),
 
-/***/ "./src/scripts/components/panel-footer.js":
-/*!************************************************!*\
-  !*** ./src/scripts/components/panel-footer.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/constants */ "./src/scripts/utils/constants.js");
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
-
-
-/**
- * WordPress dependancies
- */
-
-
-/**
- * Internal dependancies
- */
-
-
-/**
- * External dependancies
- */
-
-
-
-var PanelFooter = function PanelFooter(_ref) {
-  var filterOrders = _ref.filterOrders,
-      resetFilters = _ref.resetFilters;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "wc-bulk-delete__panel-footer"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-    onClick: function onClick() {
-      return filterOrders();
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "icon"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_4__["FiFilter"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    class: "text"
-  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Filter Orders", _utils_constants__WEBPACK_IMPORTED_MODULE_3__["TEXT_DOMAIN"]))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-    className: "alt",
-    onClick: function onClick() {
-      return resetFilters();
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "icon"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_4__["FiX"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "text"
-  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Reset Filters", _utils_constants__WEBPACK_IMPORTED_MODULE_3__["TEXT_DOMAIN"])))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (PanelFooter);
-
-/***/ }),
-
 /***/ "./src/scripts/components/panel-header.js":
 /*!************************************************!*\
   !*** ./src/scripts/components/panel-header.js ***!
@@ -30299,12 +30235,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/constants */ "./src/scripts/utils/constants.js");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/utils */ "./src/scripts/utils/utils.js");
-/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/api */ "./src/scripts/services/api.js");
-/* harmony import */ var _panel_header__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./panel-header */ "./src/scripts/components/panel-header.js");
-/* harmony import */ var _panel_footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./panel-footer */ "./src/scripts/components/panel-footer.js");
-/* harmony import */ var _steps_filter__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./steps/filter */ "./src/scripts/components/steps/filter.js");
-/* harmony import */ var _steps_review__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./steps/review */ "./src/scripts/components/steps/review.js");
+/* harmony import */ var _services_api__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/api */ "./src/scripts/services/api.js");
+/* harmony import */ var _panel_header__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./panel-header */ "./src/scripts/components/panel-header.js");
+/* harmony import */ var _steps_filter__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./steps/filter */ "./src/scripts/components/steps/filter.js");
+/* harmony import */ var _steps_review__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./steps/review */ "./src/scripts/components/steps/review.js");
 
 
 
@@ -30329,8 +30263,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 /**
  * Internal dependancies
  */
-
-
 
 
 
@@ -30369,17 +30301,18 @@ var Panel = function Panel(_ref) {
 
   var _useState5 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["useState"])([]),
       _useState6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default()(_useState5, 2),
-      statuses = _useState6[0],
-      setStatuses = _useState6[1];
+      status = _useState6[0],
+      setStatus = _useState6[1];
 
   var classNames = classnames__WEBPACK_IMPORTED_MODULE_7___default()("wc-bulk-delete__panel-wrapper", {
-    "is-open": isPanelOpen
+    "is-open": isPanelOpen,
+    "is-loading": loading
   });
 
   var handleClickOutside = function handleClickOutside(e) {
     if (!ref || ref.current === false) return;
     if (ref.current.contains(e.target)) return;
-    resetFilters();
+    reset();
     closePanel();
   };
 
@@ -30400,8 +30333,14 @@ var Panel = function Panel(_ref) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return Object(_services_api__WEBPACK_IMPORTED_MODULE_10__["getOrderStatusList"])().then(function (data) {
-              setStatuses(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_9__["formatStatusList"])(data));
+            return Object(_services_api__WEBPACK_IMPORTED_MODULE_9__["get_statuses"])().then(function (data) {
+              setStatus(Object.keys(data).map(function (id) {
+                return {
+                  key: id,
+                  value: data[id],
+                  checked: false
+                };
+              }));
               setLoading(false);
             });
 
@@ -30413,16 +30352,18 @@ var Panel = function Panel(_ref) {
     }, _callee);
   })), []);
 
-  var resetFilters = function resetFilters() {
+  var reset = function reset() {
     if (loading) return;
     setData(_utils_constants__WEBPACK_IMPORTED_MODULE_8__["DEFAULT_DATA"]);
-    setStatuses(statuses.map(function (status) {
-      status.checked = false;
-      return status;
+    setStep(1);
+    setLoading(false);
+    setStatus(status.map(function (m) {
+      m.checked = false;
+      return m;
     }));
   };
 
-  var fetchOrders = /*#__PURE__*/function () {
+  var getOrders = /*#__PURE__*/function () {
     var _ref3 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_5___default.a.mark(function _callee2() {
       var complete, offset, data, apiData;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_5___default.a.wrap(function _callee2$(_context2) {
@@ -30440,7 +30381,7 @@ var Panel = function Panel(_ref) {
                 date_period: datePeriod,
                 date_after: dateAfter,
                 date_before: dateBefore,
-                status: statuses.filter(function (s) {
+                status: status.filter(function (s) {
                   return s.checked;
                 }).map(function (s) {
                   return s.key;
@@ -30455,7 +30396,7 @@ var Panel = function Panel(_ref) {
 
               apiData.offset = offset;
               _context2.next = 11;
-              return Object(_services_api__WEBPACK_IMPORTED_MODULE_10__["getOrders"])(apiData).then(function (response) {
+              return Object(_services_api__WEBPACK_IMPORTED_MODULE_9__["get_orders"])(apiData).then(function (response) {
                 if (response.length) {
                   data = [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(data), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(response));
                 } else {
@@ -30485,32 +30426,36 @@ var Panel = function Panel(_ref) {
       }, _callee2);
     }));
 
-    return function fetchOrders() {
+    return function getOrders() {
       return _ref3.apply(this, arguments);
     };
   }();
 
   var filterProps = {
+    step: step,
     loading: loading,
     datePeriod: datePeriod,
     dateAfter: dateAfter,
     dateBefore: dateBefore,
-    statuses: statuses,
+    status: status,
+    reset: reset,
+    getOrders: getOrders,
     setData: setData,
-    setStatuses: setStatuses
+    setStatus: setStatus
   };
   var reviewProps = {
+    step: step,
     loading: loading,
     orders: orders,
-    setData: setData
+    setData: setData,
+    setStep: setStep
   };
 
   var getCurrentStep = function getCurrentStep() {
     var steps = {
-      1: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_steps_filter__WEBPACK_IMPORTED_MODULE_13__["default"], filterProps),
-      2: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_steps_review__WEBPACK_IMPORTED_MODULE_14__["default"], reviewProps),
-      3: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_steps_filter__WEBPACK_IMPORTED_MODULE_13__["default"], filterProps),
-      4: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_steps_filter__WEBPACK_IMPORTED_MODULE_13__["default"], filterProps)
+      1: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_steps_filter__WEBPACK_IMPORTED_MODULE_11__["default"], filterProps),
+      2: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_steps_review__WEBPACK_IMPORTED_MODULE_12__["default"], reviewProps),
+      3: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_steps_filter__WEBPACK_IMPORTED_MODULE_11__["default"], filterProps)
     };
     return steps[step];
   };
@@ -30523,14 +30468,9 @@ var Panel = function Panel(_ref) {
     "aria-label": Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])("Bulk Order Delete", _utils_constants__WEBPACK_IMPORTED_MODULE_8__["TEXT_DOMAIN"])
   }, isPanelOpen ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("div", {
     className: "wc-bulk-delete__panel-content"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_panel_header__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_panel_header__WEBPACK_IMPORTED_MODULE_10__["default"], {
     step: step
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("div", {
-    className: "wc-bulk-delete__panel-body"
-  }, getCurrentStep()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_panel_footer__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    filterOrders: fetchOrders,
-    resetFilters: resetFilters
-  }))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null)));
+  }), getCurrentStep())) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Panel);
@@ -30556,12 +30496,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/constants */ "./src/scripts/utils/constants.js");
-/* harmony import */ var _controls_placeholder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../controls/placeholder */ "./src/scripts/controls/placeholder.js");
-/* harmony import */ var _controls_form_row__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../controls/form-row */ "./src/scripts/controls/form-row.js");
-/* harmony import */ var _controls_form_field__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../controls/form-field */ "./src/scripts/controls/form-field.js");
-/* harmony import */ var _controls_date_picker_header__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../controls/date-picker-header */ "./src/scripts/controls/date-picker-header.js");
-/* harmony import */ var _controls_status_list__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../controls/status-list */ "./src/scripts/controls/status-list.js");
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
+/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/constants */ "./src/scripts/utils/constants.js");
+/* harmony import */ var _controls_placeholder__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../controls/placeholder */ "./src/scripts/controls/placeholder.js");
+/* harmony import */ var _controls_form_row__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../controls/form-row */ "./src/scripts/controls/form-row.js");
+/* harmony import */ var _controls_form_field__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../controls/form-field */ "./src/scripts/controls/form-field.js");
+/* harmony import */ var _controls_date_picker_header__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../controls/date-picker-header */ "./src/scripts/controls/date-picker-header.js");
+/* harmony import */ var _controls_status_list__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../controls/status-list */ "./src/scripts/controls/status-list.js");
 
 
 
@@ -30573,6 +30514,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * External dependancies
  */
+
 
 
 /**
@@ -30587,68 +30529,94 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var FilterStep = function FilterStep(_ref) {
-  var loading = _ref.loading,
+  var step = _ref.step,
+      loading = _ref.loading,
       datePeriod = _ref.datePeriod,
       dateAfter = _ref.dateAfter,
       dateBefore = _ref.dateBefore,
-      statuses = _ref.statuses,
+      status = _ref.status,
+      reset = _ref.reset,
+      getOrders = _ref.getOrders,
       setData = _ref.setData,
-      setStatuses = _ref.setStatuses;
-  return loading ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_placeholder__WEBPACK_IMPORTED_MODULE_6__["default"], null) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+      setStatus = _ref.setStatus;
+  return loading ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "wc-bulk-delete__panel-body"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_placeholder__WEBPACK_IMPORTED_MODULE_7__["default"], null)) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "wc-bulk-delete__panel-body"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "wc-bulk-delete__filter-settings"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_row__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_row__WEBPACK_IMPORTED_MODULE_8__["default"], {
     id: "date-period-row"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_field__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_field__WEBPACK_IMPORTED_MODULE_9__["default"], {
     id: "date-period",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Date Period", _utils_constants__WEBPACK_IMPORTED_MODULE_5__["TEXT_DOMAIN"]),
-    desc: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Choose a date period within the orders should be deleted.", _utils_constants__WEBPACK_IMPORTED_MODULE_5__["TEXT_DOMAIN"])
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Date Period", _utils_constants__WEBPACK_IMPORTED_MODULE_6__["TEXT_DOMAIN"]),
+    desc: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Choose a date period within the orders should be deleted.", _utils_constants__WEBPACK_IMPORTED_MODULE_6__["TEXT_DOMAIN"])
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     id: "wc-bulk-delete__date-period",
     value: datePeriod,
-    options: _utils_constants__WEBPACK_IMPORTED_MODULE_5__["DATE_PERIODS"],
+    options: _utils_constants__WEBPACK_IMPORTED_MODULE_6__["DATE_PERIODS"],
     onChange: function onChange(period) {
       return setData({
         datePeriod: period
       });
     }
-  }))), datePeriod === "custom-range" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_row__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }))), datePeriod === "custom-range" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_row__WEBPACK_IMPORTED_MODULE_8__["default"], {
     id: "custom-date-range-row"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_field__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_field__WEBPACK_IMPORTED_MODULE_9__["default"], {
     id: "date-after",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Date After", _utils_constants__WEBPACK_IMPORTED_MODULE_5__["TEXT_DOMAIN"])
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Date After", _utils_constants__WEBPACK_IMPORTED_MODULE_6__["TEXT_DOMAIN"])
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(react_datepicker__WEBPACK_IMPORTED_MODULE_4___default.a, {
     id: "wc-bulk-delete__date-after",
     selected: dateAfter,
     dateFormat: "yyyy-MM-dd",
-    renderCustomHeader: _controls_date_picker_header__WEBPACK_IMPORTED_MODULE_9__["default"],
+    renderCustomHeader: _controls_date_picker_header__WEBPACK_IMPORTED_MODULE_10__["default"],
     onChange: function onChange(date) {
       return setData({
         dateAfter: date
       });
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_field__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_field__WEBPACK_IMPORTED_MODULE_9__["default"], {
     id: "date-before",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Date Before", _utils_constants__WEBPACK_IMPORTED_MODULE_5__["TEXT_DOMAIN"])
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Date Before", _utils_constants__WEBPACK_IMPORTED_MODULE_6__["TEXT_DOMAIN"])
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(react_datepicker__WEBPACK_IMPORTED_MODULE_4___default.a, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({
     id: "wc-bulk-delete__date-before",
     selected: dateBefore,
     dateFormat: "yyyy-MM-dd",
-    renderCustomHeader: _controls_date_picker_header__WEBPACK_IMPORTED_MODULE_9__["default"],
+    renderCustomHeader: _controls_date_picker_header__WEBPACK_IMPORTED_MODULE_10__["default"],
     onChange: function onChange(date) {
       return setData({
         dateBefore: date
       });
     }
-  }, "renderCustomHeader", _controls_date_picker_header__WEBPACK_IMPORTED_MODULE_9__["default"])))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_row__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, "renderCustomHeader", _controls_date_picker_header__WEBPACK_IMPORTED_MODULE_10__["default"])))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_row__WEBPACK_IMPORTED_MODULE_8__["default"], {
     id: "order-status-row"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_field__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_form_field__WEBPACK_IMPORTED_MODULE_9__["default"], {
     id: "order-status",
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Order Status", _utils_constants__WEBPACK_IMPORTED_MODULE_5__["TEXT_DOMAIN"]),
-    desc: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Choose order statuses to delete orders from selected statuses, Leave all unchecked if you want to delete within all order statuses.", _utils_constants__WEBPACK_IMPORTED_MODULE_5__["TEXT_DOMAIN"])
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_status_list__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    options: statuses,
-    onChange: setStatuses
-  })))));
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Order Status", _utils_constants__WEBPACK_IMPORTED_MODULE_6__["TEXT_DOMAIN"]),
+    desc: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Choose order status to delete orders from selected status, Leave all unchecked if you want to delete within all order status.", _utils_constants__WEBPACK_IMPORTED_MODULE_6__["TEXT_DOMAIN"])
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_controls_status_list__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    options: status,
+    onChange: setStatus
+  }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "wc-bulk-delete__panel-footer"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+    onClick: function onClick() {
+      return getOrders();
+    }
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    className: "icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_5__["FiFilter"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    class: "text"
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Filter Orders", _utils_constants__WEBPACK_IMPORTED_MODULE_6__["TEXT_DOMAIN"]))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+    className: "alt",
+    onClick: function onClick() {
+      return reset();
+    }
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    className: "icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_5__["FiX"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    className: "text"
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Reset", _utils_constants__WEBPACK_IMPORTED_MODULE_6__["TEXT_DOMAIN"])))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FilterStep);
@@ -30668,12 +30636,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/constants */ "./src/scripts/utils/constants.js");
-/* harmony import */ var _controls_notice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../controls/notice */ "./src/scripts/controls/notice.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.esm.js");
+/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/constants */ "./src/scripts/utils/constants.js");
+/* harmony import */ var _controls_notice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../controls/notice */ "./src/scripts/controls/notice.js");
 
 
 /**
  * WordPress dependancies
+ */
+
+
+
+/**
+ * External dependancies
  */
 
 
@@ -30685,9 +30662,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ReviewStep = function ReviewStep(_ref) {
-  var loading = _ref.loading,
+  var step = _ref.step,
+      loading = _ref.loading,
       orders = _ref.orders,
-      setData = _ref.setData;
+      setData = _ref.setData,
+      setStep = _ref.setStep;
   var groupOrders = orders.reduce(function (order, current) {
     if (!order[current.status]) order[current.status] = {
       label: current.status_label,
@@ -30696,16 +30675,24 @@ var ReviewStep = function ReviewStep(_ref) {
     order[current.status].items.push(current);
     return order;
   }, {});
-  return loading ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_controls_notice__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return loading ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "wc-bulk-delete__panel-body"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_controls_notice__WEBPACK_IMPORTED_MODULE_5__["default"], {
     status: "info",
-    type: "outline",
+    type: "semi-filled",
     loading: "true"
-  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Please wait, while we are matching shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.", _utils_constants__WEBPACK_IMPORTED_MODULE_2__["TEXT_DOMAIN"]))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, orders.length ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_controls_notice__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Please wait, while we are finding shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.", _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"]))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "wc-bulk-delete__panel-body"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_controls_notice__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    status: "info",
+    type: "semi-filled",
+    loading: "true"
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Please wait, while we are finding shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.", _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"])), orders.length ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_controls_notice__WEBPACK_IMPORTED_MODULE_5__["default"], {
     status: "success",
-    type: "filled"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["RawHTML"], null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("We have found <strong>".concat(orders.length, "</strong> shop orders with your select filters. here is small summary of orders by order status. Now you can delete the matched orders by click <strong>").concat(Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("\"Delete Orders\"", _utils_constants__WEBPACK_IMPORTED_MODULE_2__["TEXT_DOMAIN"]), "</strong> button below."), _utils_constants__WEBPACK_IMPORTED_MODULE_2__["TEXT_DOMAIN"]))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
+    type: "semi-filled"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["RawHTML"], null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("<strong>".concat(Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["sprintf"])(Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["_n"])("%d shop order", "%d shop orders", orders.length, _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"]), orders.length), "</strong> found from with your select filters. Short summary of orders by order status is given below. Please review and proceed to delete found orders by clicking <strong>").concat(Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("\"Delete Orders\"", _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"]), "</strong> button below."), _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"]))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
     className: "wc-bulk-delete__orders-summary"
-  }, Object.keys(groupOrders).map(function (key) {
+  }, Object.keys(groupOrders).sort().map(function (key) {
     var item = groupOrders[key];
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("li", {
       key: "order-list-status-".concat(key)
@@ -30713,11 +30700,27 @@ var ReviewStep = function ReviewStep(_ref) {
       className: "list-label"
     }, item.label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
       className: "list-status"
-    }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["sprintf"])(Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["_n"])("%d order", "%d orders", item.items.length, _utils_constants__WEBPACK_IMPORTED_MODULE_2__["TEXT_DOMAIN"]), item.items.length)));
-  }))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_controls_notice__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["sprintf"])(Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["_n"])("%d order", "%d orders", item.items.length, _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"]), item.items.length)));
+  }))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_controls_notice__WEBPACK_IMPORTED_MODULE_5__["default"], {
     status: "error",
     type: "filled"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Sorry, we didn't any found any matched shop orders with your selected filters.", _utils_constants__WEBPACK_IMPORTED_MODULE_2__["TEXT_DOMAIN"]))));
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Sorry, no shop orders found from your selected filters.", _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"])))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "wc-bulk-delete__panel-footer"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    onClick: function onClick() {
+      return setStep(1);
+    }
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_3__["FiArrowLeft"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "text"
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Go Back", _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"]))), orders.length ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    className: "alt"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_icons_fi__WEBPACK_IMPORTED_MODULE_3__["FiTrash"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    class: "text"
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Delete Orders", _utils_constants__WEBPACK_IMPORTED_MODULE_4__["TEXT_DOMAIN"]))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ReviewStep);
@@ -31249,13 +31252,13 @@ var OrderStatusListControl = function OrderStatusListControl(_ref) {
 /*!*************************************!*\
   !*** ./src/scripts/services/api.js ***!
   \*************************************/
-/*! exports provided: getOrderStatusList, getOrders */
+/*! exports provided: get_statuses, get_orders */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOrderStatusList", function() { return getOrderStatusList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOrders", function() { return getOrders; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_statuses", function() { return get_statuses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_orders", function() { return get_orders; });
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/url */ "@wordpress/url");
@@ -31265,12 +31268,12 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-var getOrderStatusList = function getOrderStatusList() {
+var get_statuses = function get_statuses() {
   return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
     path: "/wc-bulk-order-delete/v1/statuses"
   });
 };
-var getOrders = function getOrders(data) {
+var get_orders = function get_orders(data) {
   var path = Object(_wordpress_url__WEBPACK_IMPORTED_MODULE_1__["addQueryArgs"])("/wc-bulk-order-delete/v1/orders", data);
   return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
     path: path
@@ -31283,17 +31286,16 @@ var getOrders = function getOrders(data) {
 /*!************************************!*\
   !*** ./src/scripts/utils/Utils.js ***!
   \************************************/
-/*! exports provided: range, getMonthName, getDatePickerYears, addDays, getDatePickerMonths, formatStatusList */
+/*! exports provided: range, addDays, getMonthName, getDatePickerYears, getDatePickerMonths */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "range", function() { return range; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addDays", function() { return addDays; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMonthName", function() { return getMonthName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDatePickerYears", function() { return getDatePickerYears; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addDays", function() { return addDays; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDatePickerMonths", function() { return getDatePickerMonths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatStatusList", function() { return formatStatusList; });
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./src/scripts/utils/constants.js");
 /**
  * Internal dependancies
@@ -31308,6 +31310,11 @@ var range = function range(start, end) {
 
   return ans;
 };
+var addDays = function addDays(date, days) {
+  var copy = new Date(Number(date));
+  copy.setDate(date.getDate() + days);
+  return copy;
+};
 var getMonthName = function getMonthName(month) {
   return _constants__WEBPACK_IMPORTED_MODULE_0__["MONTH_NAMES"][month];
 };
@@ -31315,22 +31322,8 @@ var getDatePickerYears = function getDatePickerYears() {
   var currentDate = new Date();
   return range(currentDate.getFullYear() - 10, currentDate.getFullYear());
 };
-var addDays = function addDays(date, days) {
-  var copy = new Date(Number(date));
-  copy.setDate(date.getDate() + days);
-  return copy;
-};
 var getDatePickerMonths = function getDatePickerMonths() {
   return _constants__WEBPACK_IMPORTED_MODULE_0__["MONTH_NAMES"];
-};
-var formatStatusList = function formatStatusList(lists) {
-  return Object.keys(lists).map(function (id) {
-    return {
-      key: id,
-      value: lists[id],
-      checked: false
-    };
-  });
 };
 
 /***/ }),
@@ -31427,9 +31420,6 @@ var STEPS = [{
 }, {
   number: 3,
   label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Delete", TEXT_DOMAIN)
-}, {
-  number: 4,
-  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Complete", TEXT_DOMAIN)
 }];
 
 /***/ }),
@@ -31438,17 +31428,16 @@ var STEPS = [{
 /*!************************************!*\
   !*** ./src/scripts/utils/utils.js ***!
   \************************************/
-/*! exports provided: range, getMonthName, getDatePickerYears, addDays, getDatePickerMonths, formatStatusList */
+/*! exports provided: range, addDays, getMonthName, getDatePickerYears, getDatePickerMonths */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "range", function() { return range; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addDays", function() { return addDays; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMonthName", function() { return getMonthName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDatePickerYears", function() { return getDatePickerYears; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addDays", function() { return addDays; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDatePickerMonths", function() { return getDatePickerMonths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatStatusList", function() { return formatStatusList; });
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./src/scripts/utils/constants.js");
 /**
  * Internal dependancies
@@ -31463,6 +31452,11 @@ var range = function range(start, end) {
 
   return ans;
 };
+var addDays = function addDays(date, days) {
+  var copy = new Date(Number(date));
+  copy.setDate(date.getDate() + days);
+  return copy;
+};
 var getMonthName = function getMonthName(month) {
   return _constants__WEBPACK_IMPORTED_MODULE_0__["MONTH_NAMES"][month];
 };
@@ -31470,22 +31464,8 @@ var getDatePickerYears = function getDatePickerYears() {
   var currentDate = new Date();
   return range(currentDate.getFullYear() - 10, currentDate.getFullYear());
 };
-var addDays = function addDays(date, days) {
-  var copy = new Date(Number(date));
-  copy.setDate(date.getDate() + days);
-  return copy;
-};
 var getDatePickerMonths = function getDatePickerMonths() {
   return _constants__WEBPACK_IMPORTED_MODULE_0__["MONTH_NAMES"];
-};
-var formatStatusList = function formatStatusList(lists) {
-  return Object.keys(lists).map(function (id) {
-    return {
-      key: id,
-      value: lists[id],
-      checked: false
-    };
-  });
 };
 
 /***/ }),

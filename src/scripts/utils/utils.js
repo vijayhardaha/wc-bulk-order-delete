@@ -11,6 +11,12 @@ export const range = (start, end) => {
 	return ans;
 };
 
+export const addDays = (date, days) => {
+	const copy = new Date(Number(date));
+	copy.setDate(date.getDate() + days);
+	return copy;
+};
+
 export const getMonthName = (month) => MONTH_NAMES[month];
 
 export const getDatePickerYears = () => {
@@ -18,20 +24,4 @@ export const getDatePickerYears = () => {
 	return range(currentDate.getFullYear() - 10, currentDate.getFullYear());
 };
 
-export const addDays = (date, days) => {
-	const copy = new Date(Number(date));
-	copy.setDate(date.getDate() + days);
-	return copy;
-};
-
 export const getDatePickerMonths = () => MONTH_NAMES;
-
-export const formatStatusList = (lists) => {
-	return Object.keys(lists).map((id) => {
-		return {
-			key: id,
-			value: lists[id],
-			checked: false,
-		};
-	});
-};

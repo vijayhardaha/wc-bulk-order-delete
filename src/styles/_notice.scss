@@ -13,37 +13,22 @@
   @each $type,
   $color in $notice-colors {
     @each $style in $notice-styles {
-      $notice-color: $white;
-      $notice-bg: $color;
-      $notice-icon-bg: transparent;
-      $notice-icon-color: $white;
+      $notice-color: $color;
+      $notice-bg: $white;
+      $notice-icon-color: $color;
 
       @if $style=="filled" {
         $notice-color: $white;
         $notice-bg: $color;
-        $notice-icon-bg: transparent;
         $notice-icon-color: $white;
       }
 
       @else if $style=="semi-filled" {
-        $notice-color: $color;
-        $notice-bg: $white;
-        $notice-icon-bg: $color;
-        $notice-icon-color: $white;
-      }
-
-      @else if $style=="outline" {
-        $notice-color: $color;
-        $notice-bg: $white;
-        $notice-icon-bg: transparent;
-        $notice-icon-color: $color;
+        $notice-icon-color: $white
       }
 
       @else if $style=="simple" {
-        $notice-color: $color;
         $notice-bg: lighten($color, 40%);
-        $notice-icon-bg: transparent;
-        $notice-icon-color: $color;
 
         @if ($type=="info"or $type=="warning"or $type=="error") {
           $notice-bg: lighten($color, 25%);
@@ -57,11 +42,14 @@
 
         #{$prefix}__notice-icon {
           color: $notice-icon-color;
-          background: $notice-icon-bg;
 
-          @if $style=="simple" {
+          @if $style=="semi-filled" {
+            background: $color;
+          }
+
+          @if ($style=="simple"or $style=="outline") {
             .components-spinner {
-              background-color: $notice-color;
+              background-color: $color;
 
               &::before {
                 background-color: $white;
@@ -71,10 +59,10 @@
 
           @else {
             .components-spinner {
-              background-color: $notice-icon-color;
+              background-color: $white;
 
               &::before {
-                background-color: $notice-bg;
+                background-color: $color;
               }
             }
           }
@@ -93,7 +81,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 40px;
+    flex: 0 0 52px;
 
     .components-spinner {
       margin: 0;

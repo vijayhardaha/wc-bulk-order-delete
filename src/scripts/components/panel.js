@@ -13,12 +13,9 @@ import classnames from "classnames";
  * Internal dependancies
  */
 import { TEXT_DOMAIN, DEFAULT_DATA } from "../utils/constants";
-import { formatStatusList } from "../utils/utils";
-import { getOrderStatusList, getOrders } from "../services/api";
+import { get_statuses, get_orders } from "../services/api";
 
 import PanelHeader from "./panel-header";
-import PanelFooter from "./panel-footer";
-
 import FilterStep from "./steps/filter";
 import ReviewStep from "./steps/review";
 
@@ -35,10 +32,11 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 
 	const [step, setStep] = useState(1);
 	const [loading, setLoading] = useState(true);
-	const [statuses, setStatuses] = useState([]);
+	const [status, setStatus] = useState([]);
 
 	const classNames = classnames("wc-bulk-delete__panel-wrapper", {
 		"is-open": isPanelOpen,
+		"is-loading": loading,
 	});
 
 	const handleClickOutside = (e) => {
@@ -46,7 +44,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 
 		if (ref.current.contains(e.target)) return;
 
-		resetFilters();
+		reset();
 		closePanel();
 	};
 
@@ -63,26 +61,34 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 	}, [isPanelOpen]);
 
 	useEffect(async () => {
-		await getOrderStatusList().then((data) => {
-			setStatuses(formatStatusList(data));
+		await get_statuses().then((data) => {
+			setStatus(
+				Object.keys(data).map((id) => {
+					return {
+						key: id,
+						value: data[id],
+						checked: false,
+					};
+				})
+			);
 			setLoading(false);
 		});
 	}, []);
 
-	const resetFilters = () => {
+	const reset = () => {
 		if (loading) return;
-
 		setData(DEFAULT_DATA);
-
-		setStatuses(
-			statuses.map((status) => {
-				status.checked = false;
-				return status;
+		setStep(1);
+		setLoading(false);
+		setStatus(
+			status.map((m) => {
+				m.checked = false;
+				return m;
 			})
 		);
 	};
 
-	const fetchOrders = async () => {
+	const getOrders = async () => {
 		let complete = false;
 		let offset = 0;
 		let data = [];
@@ -96,12 +102,12 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 			date_period: datePeriod,
 			date_after: dateAfter,
 			date_before: dateBefore,
-			status: statuses.filter((s) => s.checked).map((s) => s.key),
+			status: status.filter((s) => s.checked).map((s) => s.key),
 		};
 
 		while (!complete) {
 			apiData.offset = offset;
-			data = await getOrders(apiData).then((response) => {
+			data = await get_orders(apiData).then((response) => {
 				if (response.length) {
 					data = [...data, ...response];
 				} else {
@@ -117,19 +123,24 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 	};
 
 	const filterProps = {
+		step,
 		loading,
 		datePeriod,
 		dateAfter,
 		dateBefore,
-		statuses,
+		status,
+		reset,
+		getOrders,
 		setData,
-		setStatuses,
+		setStatus,
 	};
 
 	const reviewProps = {
+		step,
 		loading,
 		orders,
 		setData,
+		setStep,
 	};
 
 	const getCurrentStep = () => {
@@ -137,7 +148,6 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 			1: <FilterStep {...filterProps} />,
 			2: <ReviewStep {...reviewProps} />,
 			3: <FilterStep {...filterProps} />,
-			4: <FilterStep {...filterProps} />,
 		};
 
 		return steps[step];
@@ -158,12 +168,9 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 						<div className="wc-bulk-delete__panel-content">
 							{/*Panel Header */}
 							<PanelHeader step={step} />
-							<div className="wc-bulk-delete__panel-body">{getCurrentStep()}</div>
-							{/*Panel Footer */}
-							<PanelFooter
-								filterOrders={fetchOrders}
-								resetFilters={resetFilters}
-							/>
+
+							{/*Panel Body */}
+							{getCurrentStep()}
 						</div>
 					</>
 				) : (
