@@ -44,7 +44,7 @@ const ReviewStep = ({ loading, orders, setData }) => {
 							)}
 						</RawHTML>
 					</Notice>
-					<ul className="wcbod__orders-summary">
+					<ul className="wc-bulk-delete__orders-summary">
 						{Object.keys(groupOrders).map((key) => {
 							const item = groupOrders[key];
 							return (

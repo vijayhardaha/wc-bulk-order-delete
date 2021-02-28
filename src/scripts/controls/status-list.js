@@ -5,7 +5,7 @@ import { CheckboxControl } from "@wordpress/components";
 
 const OrderStatusListControl = ({ options, onChange }) => {
 	return (
-		<ul className="wcbod__checkbox-group">
+		<ul className="wc-bulk-delete__checkbox-group">
 			{options.map(({ key, value, checked }, i) => {
 				return (
 					<li key={`${i}-${key}`}>

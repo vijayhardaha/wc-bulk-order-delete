@@ -24,7 +24,7 @@ const DeleteButtonControl = ({ onButtonClick, isClicked = false }) => {
 
 	return (
 		<a
-			className="button wcbod__button"
+			className="button wc-bulk-delete__button"
 			type="button"
 			onClick={() => {
 				const isOpen = !clicked;
@@ -35,7 +35,7 @@ const DeleteButtonControl = ({ onButtonClick, isClicked = false }) => {
 			<span className="icon">
 				<FiTrash />
 			</span>
-			<span className="text">{__("Delete Orders", TEXT_DOMAIN)}</span>
+			<span className="text">{__("Bulk Delete", TEXT_DOMAIN)}</span>
 		</a>
 	);
 };

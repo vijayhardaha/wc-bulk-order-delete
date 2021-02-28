@@ -37,7 +37,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 	const [loading, setLoading] = useState(true);
 	const [statuses, setStatuses] = useState([]);
 
-	const classNames = classnames("wcbod__panel-wrapper", {
+	const classNames = classnames("wc-bulk-delete__panel-wrapper", {
 		"is-open": isPanelOpen,
 	});
 
@@ -155,10 +155,10 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 				{isPanelOpen ? (
 					<>
 						{/*Panel Content */}
-						<div className="wcbod__panel-content">
+						<div className="wc-bulk-delete__panel-content">
 							{/*Panel Header */}
 							<PanelHeader step={step} />
-							<div className="wcbod__panel-body">{getCurrentStep()}</div>
+							<div className="wc-bulk-delete__panel-body">{getCurrentStep()}</div>
 							{/*Panel Footer */}
 							<PanelFooter
 								filterOrders={fetchOrders}

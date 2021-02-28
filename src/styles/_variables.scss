@@ -41,7 +41,7 @@ $notice-styles: ("filled", "outline", "semi-filled", "simple");
 
 $step-color: #e8dfd8;
 
-$prefix: ".wcbod";
+$prefix: ".wc-bulk-delete";
 
 @mixin screen() {
   @media (min-width: 783px) {

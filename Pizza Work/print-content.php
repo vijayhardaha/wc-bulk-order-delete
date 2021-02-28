@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php do_action( 'wcdn_after_branding', $order ); ?>
 	</div><!-- .order-branding -->
 
-	<div class="order-addresses 
+	<div class="order-addresses
 	<?php
 	if ( ! wcdn_has_shipping_address( $order ) ) :
 		?>
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</address>
 		</div>
 
-		<div class="shipping-address">						
+		<div class="shipping-address">
 			<h3><?php esc_attr_e( 'Shipping Address', 'woocommerce-delivery-notes' ); ?></h3>
 			<address>
 
@@ -155,9 +155,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 													$term_wp        = get_term_by( 'slug', $value, $key );
 													$attribute_name = wc_attribute_label( $key, $variation );
 													if ( isset( $term_wp->name ) ) {
-														echo '<br><small>' . wp_kses_post( $attribute_name . ': ' . $term_wp->name ) . '</small>';
+														echo '<br><small>' . wp_kses_post( '<strong>' . $attribute_name . '</strong> : ' . $term_wp->name ) . '</small>';
 													} else {
-														echo '<br><small>' . wp_kses_post( $attribute_name . ': ' . $value ) . '</small>';
+														echo '<br><small>' . wp_kses_post( '<strong>' . $attribute_name . '</strong>: ' . $value ) . '</small>';
 													}
 												}
 											}
@@ -176,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 													if ( in_array( $key, array( 'Quantity', 'Total' ), true ) ) {
 														continue;
 													}
-													echo '<br><small>' . wp_kses_post( $key . ': ' . $value ) . '</small>';
+													echo '<br><small>' . wp_kses_post( '<strong>' . $key . '</strong> : ' . $value ) . '</small>';
 												}
 											}
 										}
@@ -276,7 +276,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="colophon-imprint">
 			<?php wcdn_imprint(); ?>
-		</div>	
+		</div>
 
 		<?php do_action( 'wcdn_after_colophon', $order ); ?>
 	</div><!-- .order-colophon -->

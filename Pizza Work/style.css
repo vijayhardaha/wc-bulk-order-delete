@@ -243,8 +243,13 @@ h2 {
 }
 
 .order-items .product-name small {
-  font-size: 70%;
+  font-size: 90%;
   line-height: 100%;
+}
+
+.order-items .product-name strong {
+  font-weight: normal;
+  border-bottom: 1px solid #000;
 }
 
 .order-items .product-name table,

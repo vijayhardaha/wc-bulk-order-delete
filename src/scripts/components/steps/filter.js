@@ -33,7 +33,7 @@ const FilterStep = ({
 		<Placeholder />
 	) : (
 		<>
-			<div className="wcbod__filter-settings">
+			<div className="wc-bulk-delete__filter-settings">
 				<FormRow id="date-period-row">
 					<FormField
 						id="date-period"
@@ -44,7 +44,7 @@ const FilterStep = ({
 						)}
 					>
 						<SelectControl
-							id="wcbod__date-period"
+							id="wc-bulk-delete__date-period"
 							value={datePeriod}
 							options={DATE_PERIODS}
 							onChange={(period) => setData({ datePeriod: period })}
@@ -56,7 +56,7 @@ const FilterStep = ({
 					<FormRow id="custom-date-range-row">
 						<FormField id="date-after" label={__("Date After", TEXT_DOMAIN)}>
 							<DatePicker
-								id="wcbod__date-after"
+								id="wc-bulk-delete__date-after"
 								selected={dateAfter}
 								dateFormat="yyyy-MM-dd"
 								renderCustomHeader={DatePickerHeaderControl}
@@ -66,7 +66,7 @@ const FilterStep = ({
 
 						<FormField id="date-before" label={__("Date Before", TEXT_DOMAIN)}>
 							<DatePicker
-								id="wcbod__date-before"
+								id="wc-bulk-delete__date-before"
 								selected={dateBefore}
 								dateFormat="yyyy-MM-dd"
 								renderCustomHeader={DatePickerHeaderControl}

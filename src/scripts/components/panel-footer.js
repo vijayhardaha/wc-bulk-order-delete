@@ -17,7 +17,7 @@ import { FiFilter, FiArrowLeft, FiX } from "react-icons/fi";
 const PanelFooter = ({ filterOrders, resetFilters }) => {
 	return (
 		<>
-			<div className="wcbod__panel-footer">
+			<div className="wc-bulk-delete__panel-footer">
 				<Button onClick={() => filterOrders()}>
 					<span className="icon">
 						<FiFilter />

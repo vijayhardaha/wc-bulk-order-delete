@@ -6,9 +6,9 @@ import Skeleton from "react-loading-skeleton";
 const Placeholder = () => {
 	return (
 		<>
-			<div class="wcbod__filter-settings wcbod__skeleton">
-				<div class="wcbod__form-row wcbod__date-period-row">
-					<div class="wcbod__form-field wcbod__date-period">
+			<div class="wc-bulk-delete__filter-settings wc-bulk-delete__skeleton">
+				<div class="wc-bulk-delete__form-row wc-bulk-delete__date-period-row">
+					<div class="wc-bulk-delete__form-field wc-bulk-delete__date-period">
 						<div>
 							<Skeleton height={18} width={120} />
 						</div>
@@ -20,8 +20,8 @@ const Placeholder = () => {
 						</div>
 					</div>
 				</div>
-				<div class="wcbod__form-row wcbod__custom-date-range-row">
-					<div class="wcbod__form-field wcbod__date-after">
+				<div class="wc-bulk-delete__form-row wc-bulk-delete__custom-date-range-row">
+					<div class="wc-bulk-delete__form-field wc-bulk-delete__date-after">
 						<div>
 							<Skeleton height={18} width={54} />
 						</div>
@@ -29,7 +29,7 @@ const Placeholder = () => {
 							<Skeleton height={30} width={144} style={{ marginTop: 8 }} />
 						</div>
 					</div>
-					<div class="wcbod__form-field wcbod__date-before">
+					<div class="wc-bulk-delete__form-field wc-bulk-delete__date-before">
 						<div>
 							<Skeleton height={18} width={54} />
 						</div>
@@ -38,8 +38,8 @@ const Placeholder = () => {
 						</div>
 					</div>
 				</div>
-				<div class="wcbod__form-row wcbod__order-status-row">
-					<div class="wcbod__form-field wcbod__order-status">
+				<div class="wc-bulk-delete__form-row wc-bulk-delete__order-status-row">
+					<div class="wc-bulk-delete__form-field wc-bulk-delete__order-status">
 						<div>
 							<Skeleton height={18} width={68} />
 						</div>
@@ -49,7 +49,7 @@ const Placeholder = () => {
 						<div>
 							<Skeleton height={12} width={144} />
 						</div>
-						<ul class="wcbod__checkbox-group">
+						<ul class="wc-bulk-delete__checkbox-group">
 							<li>
 								<Skeleton height={16} width={16} style={{ marginRight: 5 }} />
 								<Skeleton height={12} width={93} />
