@@ -1,0 +1,30 @@
+.bod-ui__spinner {
+  position: relative;
+  margin: auto;
+  transform: translateZ(0);
+  animation: noticeSpinner 1.1s infinite linear;
+  border: 3px solid rgba($white, 0.2);
+  border-left-color: $white;
+
+  &.colored {
+    border: 3px solid rgba(map-get($notice-colors, "info"), 0.2);
+    border-left-color: map-get($notice-colors, "info");
+  }
+}
+
+.bod-ui__spinner,
+.bod-ui__spinner::after {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+@keyframes noticeSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

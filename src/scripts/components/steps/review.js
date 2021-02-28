@@ -8,7 +8,7 @@ import { Button } from "@wordpress/components";
 /**
  * External dependancies
  */
-import { FiArrowLeft, FiTrash } from "react-icons/fi";
+import { CgArrowLeft, CgTrashEmpty } from "react-icons/cg";
 
 /**
  * Internal dependancies
@@ -25,7 +25,7 @@ const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 	}, {});
 
 	return loading ? (
-		<div className="wc-bulk-delete__panel-body">
+		<div className="bod-ui__panel-body">
 			<Notice status="info" type="semi-filled" loading="true">
 				{__(
 					"Please wait, while we are finding shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.",
@@ -35,13 +35,7 @@ const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 		</div>
 	) : (
 		<>
-			<div className="wc-bulk-delete__panel-body">
-			<Notice status="info" type="semi-filled" loading="true">
-				{__(
-					"Please wait, while we are finding shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.",
-					TEXT_DOMAIN
-				)}
-			</Notice>
+			<div className="bod-ui__panel-body">
 				{orders.length ? (
 					<>
 						<Notice status="success" type="semi-filled">
@@ -63,7 +57,7 @@ const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 								)}
 							</RawHTML>
 						</Notice>
-						<ul className="wc-bulk-delete__orders-summary">
+						<ul className="bod-ui__orders-summary">
 							{Object.keys(groupOrders)
 								.sort()
 								.map((key) => {
@@ -98,17 +92,17 @@ const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 					</Notice>
 				)}
 			</div>
-			<div className="wc-bulk-delete__panel-footer">
+			<div className="bod-ui__panel-footer">
 				<Button onClick={() => setStep(1)}>
 					<span className="icon">
-						<FiArrowLeft />
+						<CgArrowLeft />
 					</span>
 					<span className="text">{__("Go Back", TEXT_DOMAIN)}</span>
 				</Button>
 				{orders.length ? (
-					<Button className="alt">
+					<Button className="alt" onClick={() => setStep(3)}>
 						<span className="icon">
-							<FiTrash />
+							<CgTrashEmpty />
 						</span>
 						<span class="text">{__("Delete Orders", TEXT_DOMAIN)}</span>
 					</Button>

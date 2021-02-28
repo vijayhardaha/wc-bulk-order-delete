@@ -24,7 +24,7 @@ $panel-top-pad-small: 92px;
 $panel-header-height: 65px;
 $panel-footer-height: 62px;
 
-$border-color: #e1e4e8;
+$border-color: #E6E6E6;
 $date-picker-border-color: #e4e7e7;
 $border-radius: 4px;
 $btn-height: 32px;
@@ -40,8 +40,6 @@ $notice-colors: ("success": #4bd67b,
 $notice-styles: ("filled", "outline", "semi-filled", "simple");
 
 $step-color: #b9b7b7;
-
-$prefix: ".wc-bulk-delete";
 
 @mixin screen() {
   @media (min-width: 783px) {

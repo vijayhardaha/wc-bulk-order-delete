@@ -4,6 +4,11 @@
 import { __ } from "@wordpress/i18n";
 
 /**
+ * External dependancies
+ */
+import { CgArrowLeft, CgArrowRight } from "react-icons/cg";
+
+/**
  * Internal dependancies
  */
 import { TEXT_DOMAIN } from "../utils/constants";
@@ -12,11 +17,6 @@ import {
 	getDatePickerMonths as months,
 	getDatePickerYears as years,
 } from "../utils/Utils";
-
-/**
- * External dependancies
- */
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 const DatePickerHeaderControl = ({
 	date,
@@ -36,7 +36,7 @@ const DatePickerHeaderControl = ({
 				onClick={decreaseMonth}
 				disabled={prevMonthButtonDisabled}
 			>
-				<BsArrowLeft />
+				<CgArrowLeft />
 			</button>
 
 			<select
@@ -70,7 +70,7 @@ const DatePickerHeaderControl = ({
 				onClick={increaseMonth}
 				disabled={nextMonthButtonDisabled}
 			>
-				<BsArrowRight />
+				<CgArrowRight />
 			</button>
 		</div>
 	);

@@ -139,7 +139,7 @@ class WC_Bulk_Order_Delete_Admin {
 					'wc-bulk-order-delete/v1',
 					'/orders',
 					array(
-						'methods'             => WP_REST_Server::READABLE,
+						'methods'             => WP_REST_Server::CREATABLE,
 						'callback'            => array( $this, 'get_orders' ),
 						'permission_callback' => array( $this, 'is_allowed_to_delete_shop_order' ),
 					)

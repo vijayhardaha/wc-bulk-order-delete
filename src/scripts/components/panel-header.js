@@ -22,23 +22,23 @@ const PanelHeader = ({ step }) => {
 
 	return (
 		<>
-			<div className="wc-bulk-delete__panel-header">
-				<div className="wc-bulk-delete__steps">
-					<div className="wc-bulk-delete__bar">
-						<div className="wc-bulk-delete__bar-fill" style={styles}></div>
+			<div className="bod-ui__panel-header">
+				<div className="bod-ui__steps">
+					<div className="bod-ui__bar">
+						<div className="bod-ui__bar-fill" style={styles}></div>
 					</div>
 					{STEPS.map(({ number, label }, i) => {
-						const classNames = classnames("wc-bulk-delete__point", {
-							"wc-bulk-delete__point-complete": step > number,
-							"wc-bulk-delete__point-active": step == number,
+						const classNames = classnames("bod-ui__point", {
+							"bod-ui__point-complete": step > number,
+							"bod-ui__point-active": step == number,
 						});
 
 						const bullet = step > number ? <HiCheck /> : number;
 
 						return (
-							<div key={`wc-bulk-delete__point-${i}-${number}`} className={classNames}>
-								<div className="wc-bulk-delete__bullet">{bullet}</div>
-								<label className="wc-bulk-delete__label">{label}</label>
+							<div key={`bod-ui__point-${i}-${number}`} className={classNames}>
+								<div className="bod-ui__bullet">{bullet}</div>
+								<label className="bod-ui__label">{label}</label>
 							</div>
 						);
 					})}

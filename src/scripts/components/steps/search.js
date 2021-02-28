@@ -8,7 +8,7 @@ import { Button, SelectControl } from "@wordpress/components";
  * External dependancies
  */
 import DatePicker from "react-datepicker";
-import { FiFilter, FiArrowLeft, FiX } from "react-icons/fi";
+import { CgSearch, CgClose } from "react-icons/cg";
 
 /**
  * Internal dependancies
@@ -20,7 +20,7 @@ import FormField from "../../controls/form-field";
 import DatePickerHeaderControl from "../../controls/date-picker-header";
 import OrderStatusListControl from "../../controls/status-list";
 
-const FilterStep = ({
+const SearchStep = ({
 	step,
 	loading,
 	datePeriod,
@@ -28,18 +28,18 @@ const FilterStep = ({
 	dateBefore,
 	status,
 	reset,
-	getOrders,
+	findOrders,
 	setData,
 	setStatus,
 }) => {
 	return loading ? (
-		<div className="wc-bulk-delete__panel-body">
+		<div className="bod-ui__panel-body">
 			<Placeholder />
 		</div>
 	) : (
 		<>
-			<div className="wc-bulk-delete__panel-body">
-				<div className="wc-bulk-delete__filter-settings">
+			<div className="bod-ui__panel-body">
+				<div className="bod-ui__filter-settings">
 					<FormRow id="date-period-row">
 						<FormField
 							id="date-period"
@@ -50,7 +50,7 @@ const FilterStep = ({
 							)}
 						>
 							<SelectControl
-								id="wc-bulk-delete__date-period"
+								id="bod-ui__date-period"
 								value={datePeriod}
 								options={DATE_PERIODS}
 								onChange={(period) => setData({ datePeriod: period })}
@@ -62,11 +62,15 @@ const FilterStep = ({
 						<FormRow id="custom-date-range-row">
 							<FormField id="date-after" label={__("Date After", TEXT_DOMAIN)}>
 								<DatePicker
-									id="wc-bulk-delete__date-after"
+									id="bod-ui__date-after"
 									selected={dateAfter}
 									dateFormat="yyyy-MM-dd"
 									renderCustomHeader={DatePickerHeaderControl}
-									onChange={(date) => setData({ dateAfter: date })}
+									onChange={(date) => {
+										if (date !== null && date !== "") {
+											setData({ dateAfter: date });
+										}
+									}}
 								/>
 							</FormField>
 
@@ -75,11 +79,15 @@ const FilterStep = ({
 								label={__("Date Before", TEXT_DOMAIN)}
 							>
 								<DatePicker
-									id="wc-bulk-delete__date-before"
+									id="bod-ui__date-before"
 									selected={dateBefore}
 									dateFormat="yyyy-MM-dd"
 									renderCustomHeader={DatePickerHeaderControl}
-									onChange={(date) => setData({ dateBefore: date })}
+									onChange={(date) => {
+										if (date !== null && date !== "") {
+											setData({ dateBefore: date });
+										}
+									}}
 									renderCustomHeader={DatePickerHeaderControl}
 								/>
 							</FormField>
@@ -88,30 +96,39 @@ const FilterStep = ({
 						<></>
 					)}
 
-					<FormRow id="order-status-row">
-						<FormField
-							id="order-status"
-							label={__("Order Status", TEXT_DOMAIN)}
-							desc={__(
-								"Choose order status to delete orders from selected status, Leave all unchecked if you want to delete within all order status.",
-								TEXT_DOMAIN
-							)}
-						>
-							<OrderStatusListControl options={status} onChange={setStatus} />
-						</FormField>
-					</FormRow>
+					{status.length ? (
+						<>
+							<FormRow id="order-status-row">
+								<FormField
+									id="order-status"
+									label={__("Order Status", TEXT_DOMAIN)}
+									desc={__(
+										"Choose order status to delete orders from selected status, Leave all unchecked if you want to delete within all order status.",
+										TEXT_DOMAIN
+									)}
+								>
+									<OrderStatusListControl
+										options={status}
+										onChange={setStatus}
+									/>
+								</FormField>
+							</FormRow>
+						</>
+					) : (
+						<></>
+					)}
 				</div>
 			</div>
-			<div className="wc-bulk-delete__panel-footer">
-				<Button onClick={() => getOrders()}>
+			<div className="bod-ui__panel-footer">
+				<Button onClick={() => findOrders()}>
 					<span className="icon">
-						<FiFilter />
+						<CgSearch />
 					</span>
-					<span class="text">{__("Filter Orders", TEXT_DOMAIN)}</span>
+					<span class="text">{__("Find Orders", TEXT_DOMAIN)}</span>
 				</Button>
 				<Button className="alt" onClick={() => reset()}>
 					<span className="icon">
-						<FiX />
+						<CgClose />
 					</span>
 					<span className="text">{__("Reset", TEXT_DOMAIN)}</span>
 				</Button>
@@ -120,4 +137,4 @@ const FilterStep = ({
 	);
 };
 
-export default FilterStep;
+export default SearchStep;

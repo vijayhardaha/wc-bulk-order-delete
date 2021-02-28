@@ -1,11 +1,11 @@
-#{$prefix}__steps {
+.bod-ui__steps {
   position: relative;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  #{$prefix}__bar {
+  .bod-ui__bar {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -16,7 +16,7 @@
     border-radius: 10px;
     background: $step-color;
 
-    #{$prefix}__bar-fill {
+    .bod-ui__bar-fill {
       width: 0;
       height: 100%;
       display: block;
@@ -24,12 +24,12 @@
     }
   }
 
-  #{$prefix}__point {
+  .bod-ui__point {
     position: relative;
     color: $white;
   }
 
-  #{$prefix}__bullet {
+  .bod-ui__bullet {
     position: relative;
     z-index: 1;
     width: 20px;
@@ -41,29 +41,35 @@
     color: $white;
     border-radius: 100%;
     background: $step-color;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
   }
 
-  #{$prefix}__label {
+  .bod-ui__label {
     position: absolute;
     top: 100%;
     left: 50%;
     margin: 6px 0 0 0;
+    cursor: text;
     transform: translate(-50%, 0);
     color: darken($step-color, 20%);
     font-size: 13px;
     line-height: 1;
   }
 
-  #{$prefix}__point-complete,
-  #{$prefix}__point-active {
-    #{$prefix}__bullet {
+  .bod-ui__point-complete,
+  .bod-ui__point-active {
+    .bod-ui__bullet {
       color: $white;
       background: $primary;
     }
 
-    #{$prefix}__label {
+    .bod-ui__label {
       color: $primary;
     }
   }

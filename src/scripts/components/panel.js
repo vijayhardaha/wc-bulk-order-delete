@@ -13,11 +13,12 @@ import classnames from "classnames";
  * Internal dependancies
  */
 import { TEXT_DOMAIN, DEFAULT_DATA } from "../utils/constants";
-import { get_statuses, get_orders } from "../services/api";
+import { getStatuses, getOrders } from "../services/api";
 
 import PanelHeader from "./panel-header";
-import FilterStep from "./steps/filter";
+import SearchStep from "./steps/search";
 import ReviewStep from "./steps/review";
+import DeleteStep from "./steps/delete";
 
 /**
  * Panel Component.
@@ -34,7 +35,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 	const [loading, setLoading] = useState(true);
 	const [status, setStatus] = useState([]);
 
-	const classNames = classnames("wc-bulk-delete__panel-wrapper", {
+	const classNames = classnames("bod-ui__panel-wrapper", {
 		"is-open": isPanelOpen,
 		"is-loading": loading,
 	});
@@ -61,7 +62,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 	}, [isPanelOpen]);
 
 	useEffect(async () => {
-		await get_statuses().then((data) => {
+		await getStatuses().then((data) => {
 			setStatus(
 				Object.keys(data).map((id) => {
 					return {
@@ -77,9 +78,11 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 
 	const reset = () => {
 		if (loading) return;
+
 		setData(DEFAULT_DATA);
 		setStep(1);
 		setLoading(false);
+
 		setStatus(
 			status.map((m) => {
 				m.checked = false;
@@ -88,7 +91,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 		);
 	};
 
-	const getOrders = async () => {
+	const findOrders = async () => {
 		let complete = false;
 		let offset = 0;
 		let data = [];
@@ -107,7 +110,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 
 		while (!complete) {
 			apiData.offset = offset;
-			data = await get_orders(apiData).then((response) => {
+			data = await getOrders(apiData).then((response) => {
 				if (response.length) {
 					data = [...data, ...response];
 				} else {
@@ -122,7 +125,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 		setLoading(false);
 	};
 
-	const filterProps = {
+	const searchProps = {
 		step,
 		loading,
 		datePeriod,
@@ -130,7 +133,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 		dateBefore,
 		status,
 		reset,
-		getOrders,
+		findOrders,
 		setData,
 		setStatus,
 	};
@@ -143,15 +146,23 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 		setStep,
 	};
 
+	const deleteProps = {
+		loading,
+		orders,
+		reset,
+		setLoading,
+	};
+
 	const getCurrentStep = () => {
 		const steps = {
-			1: <FilterStep {...filterProps} />,
+			1: <SearchStep {...searchProps} />,
 			2: <ReviewStep {...reviewProps} />,
-			3: <FilterStep {...filterProps} />,
+			3: <DeleteStep {...deleteProps} />,
 		};
 
 		return steps[step];
 	};
+
 	return (
 		<>
 			{/*Panel Wrapper*/}
@@ -165,7 +176,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 				{isPanelOpen ? (
 					<>
 						{/*Panel Content */}
-						<div className="wc-bulk-delete__panel-content">
+						<div className="bod-ui__panel-content">
 							{/*Panel Header */}
 							<PanelHeader step={step} />
 

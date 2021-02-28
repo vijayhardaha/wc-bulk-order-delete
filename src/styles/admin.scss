@@ -8,9 +8,10 @@
 
   @import "./components";
   @import "./notice";
+  @import "./spinner";
   @import "./steps";
 
-  #{$prefix}__button {
+  .bod-ui__button {
     position: relative;
     height: $input-height;
     overflow: hidden;
@@ -62,7 +63,7 @@
     }
   }
 
-  #{$prefix}__panel-wrapper {
+  .bod-ui__panel-wrapper {
     box-sizing: border-box;
     position: fixed;
     z-index: 1002;
@@ -95,12 +96,12 @@
 
   }
 
-  #{$prefix}__panel-content {
+  .bod-ui__panel-content {
     display: flex;
     flex-direction: column;
   }
 
-  #{$prefix}__panel-header {
+  .bod-ui__panel-header {
     position: sticky;
     z-index: 10;
     top: 0;
@@ -112,7 +113,7 @@
     background: $panel-header-bg;
   }
 
-  #{$prefix}__panel-footer {
+  .bod-ui__panel-footer {
     position: sticky;
     z-index: 10;
     bottom: 0;
@@ -126,7 +127,7 @@
     background: $panel-footer-bg;
   }
 
-  #{$prefix}__panel-body {
+  .bod-ui__panel-body {
     height: calc(100vh - (#{$panel-top-pad} + #{$panel-header-height} + #{$panel-footer-height}));
     overflow-x: hidden;
     overflow-y: auto;
@@ -138,7 +139,7 @@
     }
   }
 
-  #{$prefix}__form-row {
+  .bod-ui__form-row {
     &:not(:last-of-type) {
       margin: 0 0 15px 0;
       border-bottom: 1px solid $border-color;
@@ -155,7 +156,7 @@
     }
   }
 
-  #{$prefix}__form-field {
+  .bod-ui__form-field {
     float: left;
     display: block;
     margin: 0 0 15px 0;
@@ -169,7 +170,7 @@
     }
   }
 
-  #{$prefix}__desc {
+  .bod-ui__desc {
     margin: 3px 0 5px 0;
     letter-spacing: 0.35px;
     color: #aaa;
@@ -177,7 +178,7 @@
     font-style: italic;
   }
 
-  #{$prefix}__checkbox-group {
+  .bod-ui__checkbox-group {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -196,13 +197,13 @@
     }
   }
 
-  #{$prefix}__skeleton {
+  .bod-ui__skeleton {
     span {
       border-radius: 0;
     }
   }
 
-  #{$prefix}__orders-summary {
+  .bod-ui__orders-summary {
     padding: 15px;
     border: 1px solid #E6E6E6;
     border-radius: $border-radius;

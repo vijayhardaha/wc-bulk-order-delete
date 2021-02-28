@@ -24,7 +24,7 @@ const DeleteButtonControl = ({ onButtonClick, isClicked = false }) => {
 
 	return (
 		<a
-			className="button wc-bulk-delete__button"
+			className="button bod-ui__button"
 			type="button"
 			onClick={() => {
 				const isOpen = !clicked;

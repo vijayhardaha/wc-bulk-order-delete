@@ -1,14 +1,15 @@
-#{$prefix}__notice {
+.bod-ui__notice {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   margin: 0 0 15px 0;
   padding: 0;
-  border: 1px solid transparent;
+  background: $white;
+  color: #666;
+  border: 1px solid #e6e6e6;
   border-radius: $border-radius;
-
-  p {
-    margin: 0;
-  }
 
   @each $type,
   $color in $notice-colors {
@@ -24,7 +25,8 @@
       }
 
       @else if $style=="semi-filled" {
-        $notice-icon-color: $white
+        $notice-bg: $color;
+        $notice-icon-color: $white;
       }
 
       @else if $style=="simple" {
@@ -35,12 +37,18 @@
         }
       }
 
-      &#{$prefix}__notice-#{$style}-#{$type} {
-        color: $notice-color;
-        border-color: $notice-color;
-        background: $notice-bg;
+      &.bod-ui__notice-#{$style}-#{$type} {
+        @if $style=="outline" {
+          border-left-color: $color;
+        }
 
-        #{$prefix}__notice-icon {
+        @else {
+          color: $notice-color;
+          border-color: $notice-color;
+          background: $notice-bg;
+        }
+
+        .bod-ui__notice-icon {
           color: $notice-icon-color;
 
           @if $style=="semi-filled" {
@@ -48,22 +56,9 @@
           }
 
           @if ($style=="simple"or $style=="outline") {
-            .components-spinner {
-              background-color: $color;
-
-              &::before {
-                background-color: $white;
-              }
-            }
-          }
-
-          @else {
-            .components-spinner {
-              background-color: $white;
-
-              &::before {
-                background-color: $color;
-              }
+            .bod-ui__spinner {
+              border-color: rgba($color, 0.2);
+              border-left-color: $color;
             }
           }
         }
@@ -71,24 +66,23 @@
     }
   }
 
-  #{$prefix}__notice-inner {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
+  p {
+    margin: 0;
   }
 
-  #{$prefix}__notice-icon {
+  .bod-ui__notice-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 52px;
+    flex: 0 0 40px;
 
-    .components-spinner {
-      margin: 0;
+    svg {
+      width: 24px;
+      height: 24px;
     }
   }
 
-  #{$prefix}__notice-content {
+  .bod-ui__notice-content {
     flex-grow: 1;
     padding: 10px 15px;
     letter-spacing: 0.16px;
@@ -96,11 +90,17 @@
   }
 
   &[class*="notice-outline"] {
-    border-width: 2px;
+    border-left-width: 2px;
+  }
+
+  &[class*="notice-semi-filled"] {
+    .bod-ui__notice-content {
+      background: $white;
+    }
   }
 
   &.has-icon:not([class*="notice-semi-filled"]) {
-    #{$prefix}__notice-content {
+    .bod-ui__notice-content {
       padding-left: 0;
     }
   }

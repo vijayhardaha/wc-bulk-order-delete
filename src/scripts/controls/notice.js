@@ -1,7 +1,6 @@
 /**
  * WordPress dependancies
  */
-import { Spinner } from "@wordpress/components";
 
 /**
  * External dependancies
@@ -37,25 +36,27 @@ const Notice = ({
 	icon = loading ? true : icon;
 
 	const classNames = classnames(
-		"wc-bulk-delete__notice",
-		`wc-bulk-delete__notice-${type}-${status}`,
+		"bod-ui__notice",
+		`bod-ui__notice-${type}-${status}`,
 		{
 			"has-icon": icon,
 		}
 	);
 
-	const iconControl = loading ? <Spinner /> : icons[status];
+	const iconControl = loading ? (
+		<div class="bod-ui__spinner"></div>
+	) : (
+		icons[status]
+	);
 
 	return (
 		<div className={classNames}>
-			<div className="wc-bulk-delete__notice-inner">
-				{icon == true ? (
-					<div className="wc-bulk-delete__notice-icon">{iconControl}</div>
-				) : (
-					<></>
-				)}
-				<div className="wc-bulk-delete__notice-content">{children}</div>
-			</div>
+			{icon == true ? (
+				<div className="bod-ui__notice-icon">{iconControl}</div>
+			) : (
+				<></>
+			)}
+			<div className="bod-ui__notice-content">{children}</div>
 		</div>
 	);
 };

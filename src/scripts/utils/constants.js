@@ -58,7 +58,7 @@ export const DEFAULT_DATA = {
 export const STEPS = [
 	{
 		number: 1,
-		label: __("Filter", TEXT_DOMAIN),
+		label: __("Search", TEXT_DOMAIN),
 	},
 	{
 		number: 2,
