@@ -35,6 +35,8 @@ class WC_Bulk_Order_Delete_Admin {
 			return;
 		}
 
+		$this->register_api();
+
 		$count = 0;
 		foreach ( wc_get_order_statuses() as $slug => $name ) {
 			$status = str_replace( 'wc-', '', $slug );
@@ -44,8 +46,6 @@ class WC_Bulk_Order_Delete_Admin {
 		if ( $count <= 0 ) {
 			return;
 		}
-
-		$this->register_api();
 
 		// Enqueue scripts.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
