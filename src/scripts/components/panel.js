@@ -12,7 +12,7 @@ import classnames from "classnames";
 /**
  * Internal dependancies
  */
-import { TEXT_DOMAIN, DEFAULT_DATA } from "../utils/constants";
+import { DEFAULT_DATA } from "../utils/constants";
 import { getStatuses, getOrders } from "../services/api";
 
 import PanelHeader from "./panel-header";
@@ -25,6 +25,7 @@ import DeleteStep from "./steps/delete";
  */
 const Panel = ({ isPanelOpen, closePanel }) => {
 	const ref = useRef();
+	const processing = useRef(true);
 
 	const [{ datePeriod, dateAfter, dateBefore, orders }, setData] = useReducer(
 		(state, newState) => ({ ...state, ...newState }),
@@ -45,7 +46,15 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 
 		if (ref.current.contains(e.target)) return;
 
+		if (processing.current) return;
+
+		reset();
 		closePanel();
+	};
+
+	const updateLoading = (state) => {
+		setLoading(state);
+		processing.current = state;
 	};
 
 	useEffect(() => {
@@ -61,6 +70,8 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 	}, [isPanelOpen]);
 
 	useEffect(async () => {
+		updateLoading(true);
+
 		await getStatuses().then((data) => {
 			setStatus(
 				Object.keys(data).map((id) => {
@@ -71,7 +82,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 					};
 				})
 			);
-			setLoading(false);
+			updateLoading(false);
 		});
 	}, []);
 
@@ -80,7 +91,6 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 
 		setData(DEFAULT_DATA);
 		setStep(1);
-		setLoading(false);
 
 		setStatus(
 			status.map((m) => {
@@ -97,7 +107,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 
 		setData(data);
 		setStep(2);
-		setLoading(true);
+		updateLoading(true);
 
 		const apiData = {
 			offset: 0,
@@ -121,7 +131,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 		}
 
 		setData({ orders: data });
-		setLoading(false);
+		updateLoading(false);
 	};
 
 	const searchProps = {
@@ -149,7 +159,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 		loading,
 		orders,
 		reset,
-		setLoading,
+		updateLoading,
 	};
 
 	const getCurrentStep = () => {
@@ -170,7 +180,7 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 				tabIndex={0}
 				role="tabpanel"
 				ref={ref}
-				aria-label={__("Bulk Order Delete", TEXT_DOMAIN)}
+				aria-label={__("Bulk Order Delete", "wc-bulk-order-delete")}
 			>
 				{isPanelOpen ? (
 					<>

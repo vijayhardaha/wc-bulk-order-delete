@@ -13,7 +13,7 @@ import { CgSearch, CgClose } from "react-icons/cg";
 /**
  * Internal dependancies
  */
-import { TEXT_DOMAIN, DATE_PERIODS } from "../../utils/constants";
+import { DATE_PERIODS } from "../../utils/constants";
 import Placeholder from "../../controls/placeholder";
 import FormRow from "../../controls/form-row";
 import FormField from "../../controls/form-field";
@@ -43,10 +43,10 @@ const SearchStep = ({
 					<FormRow id="date-period-row">
 						<FormField
 							id="date-period"
-							label={__("Date Period", TEXT_DOMAIN)}
+							label={__("Date Period", "wc-bulk-order-delete")}
 							desc={__(
 								"Choose a date period within the orders should be deleted.",
-								TEXT_DOMAIN
+								"wc-bulk-order-delete"
 							)}
 						>
 							<SelectControl
@@ -60,7 +60,10 @@ const SearchStep = ({
 
 					{datePeriod === "custom-range" ? (
 						<FormRow id="custom-date-range-row">
-							<FormField id="date-after" label={__("Date After", TEXT_DOMAIN)}>
+							<FormField
+								id="date-after"
+								label={__("Date After", "wc-bulk-order-delete")}
+							>
 								<DatePicker
 									id="bod-ui__date-after"
 									selected={dateAfter}
@@ -76,7 +79,7 @@ const SearchStep = ({
 
 							<FormField
 								id="date-before"
-								label={__("Date Before", TEXT_DOMAIN)}
+								label={__("Date Before", "wc-bulk-order-delete")}
 							>
 								<DatePicker
 									id="bod-ui__date-before"
@@ -101,10 +104,10 @@ const SearchStep = ({
 							<FormRow id="order-status-row">
 								<FormField
 									id="order-status"
-									label={__("Order Status", TEXT_DOMAIN)}
+									label={__("Order Status", "wc-bulk-order-delete")}
 									desc={__(
 										"Choose order status to delete orders from selected status, Leave all unchecked if you want to delete within all order status.",
-										TEXT_DOMAIN
+										"wc-bulk-order-delete"
 									)}
 								>
 									<OrderStatusListControl
@@ -128,13 +131,13 @@ const SearchStep = ({
 					<span className="icon">
 						<CgSearch />
 					</span>
-					<span class="text">{__("Find Orders", TEXT_DOMAIN)}</span>
+					<span class="text">{__("Find Orders", "wc-bulk-order-delete")}</span>
 				</Button>
 				<Button className="bod-ui__button" onClick={() => reset()}>
 					<span className="icon">
 						<CgClose />
 					</span>
-					<span className="text">{__("Reset", TEXT_DOMAIN)}</span>
+					<span className="text">{__("Reset", "wc-bulk-order-delete")}</span>
 				</Button>
 			</div>
 		</>

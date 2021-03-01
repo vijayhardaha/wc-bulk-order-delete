@@ -5,11 +5,6 @@ import { __ } from "@wordpress/i18n";
 import { useState, useEffect } from "@wordpress/element";
 
 /**
- * Internal dependancies
- */
-import { TEXT_DOMAIN } from "../utils/constants";
-
-/**
  * External dependancies
  */
 import { FiTrash } from "react-icons/fi";
@@ -35,7 +30,7 @@ const DeleteButtonControl = ({ onButtonClick, isClicked = false }) => {
 			<span className="icon">
 				<FiTrash />
 			</span>
-			<span className="text">{__("Bulk Delete", TEXT_DOMAIN)}</span>
+			<span className="text">{__("Bulk Delete", "wc-bulk-order-delete")}</span>
 		</a>
 	);
 };

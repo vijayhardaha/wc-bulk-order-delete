@@ -11,7 +11,6 @@ import { CgArrowLeft, CgArrowRight } from "react-icons/cg";
 /**
  * Internal dependancies
  */
-import { TEXT_DOMAIN } from "../utils/constants";
 import {
 	getMonthName,
 	getDatePickerMonths as months,
@@ -31,7 +30,7 @@ const DatePickerHeaderControl = ({
 		<div className="react-datepicker__header-inner">
 			<button
 				type="button"
-				aria-label={__("Previous Month", TEXT_DOMAIN)}
+				aria-label={__("Previous Month", "wc-bulk-order-delete")}
 				className="react-datepicker__nav react-datepicker__nav--previous"
 				onClick={decreaseMonth}
 				disabled={prevMonthButtonDisabled}
@@ -65,7 +64,7 @@ const DatePickerHeaderControl = ({
 
 			<button
 				type="button"
-				aria-label={__("Next Month", TEXT_DOMAIN)}
+				aria-label={__("Next Month", "wc-bulk-order-delete")}
 				className="react-datepicker__nav react-datepicker__nav--next"
 				onClick={increaseMonth}
 				disabled={nextMonthButtonDisabled}
