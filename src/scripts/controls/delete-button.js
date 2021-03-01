@@ -24,7 +24,7 @@ const DeleteButtonControl = ({ onButtonClick, isClicked = false }) => {
 
 	return (
 		<a
-			className="button bod-ui__button"
+			className="button bod-ui__button is-destructive"
 			type="button"
 			onClick={() => {
 				const isOpen = !clicked;

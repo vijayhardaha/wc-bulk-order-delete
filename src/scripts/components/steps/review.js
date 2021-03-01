@@ -26,7 +26,7 @@ const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 
 	return loading ? (
 		<div className="bod-ui__panel-body">
-			<Notice status="info" type="semi-filled" loading="true">
+			<Notice type="info" loading="true">
 				{__(
 					"Please wait, while we are finding shop orders from your selected filters. This processs may take few minutes to complete, based on your selected filters.",
 					TEXT_DOMAIN
@@ -38,7 +38,7 @@ const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 			<div className="bod-ui__panel-body">
 				{orders.length ? (
 					<>
-						<Notice status="success" type="semi-filled">
+						<Notice type="success">
 							<RawHTML>
 								{__(
 									`<strong>${sprintf(
@@ -82,7 +82,7 @@ const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 						</ul>
 					</>
 				) : (
-					<Notice status="error" type="filled">
+					<Notice type="error">
 						<p>
 							{__(
 								"Sorry, no shop orders found from your selected filters.",
@@ -93,14 +93,14 @@ const ReviewStep = ({ step, loading, orders, setData, setStep }) => {
 				)}
 			</div>
 			<div className="bod-ui__panel-footer">
-				<Button onClick={() => setStep(1)}>
+				<Button className="bod-ui__button" onClick={() => setStep(1)}>
 					<span className="icon">
 						<CgArrowLeft />
 					</span>
 					<span className="text">{__("Go Back", TEXT_DOMAIN)}</span>
 				</Button>
 				{orders.length ? (
-					<Button className="alt" onClick={() => setStep(3)}>
+					<Button className="bod-ui__button" isDestructive onClick={() => setStep(3)}>
 						<span className="icon">
 							<CgTrashEmpty />
 						</span>

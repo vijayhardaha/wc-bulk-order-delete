@@ -8,6 +8,7 @@
 
   @import "./components";
   @import "./notice";
+  @import "./progress";
   @import "./spinner";
   @import "./steps";
 
@@ -55,11 +56,37 @@
 
     &:focus {
       background: darken($secondary, 8%);
+      box-shadow: 0 0 0 4px rgba($secondary, 0.3);
     }
 
-    &:focus,
     &:active {
-      box-shadow: 0 0 0 4px rgba($secondary, 0.3);
+      top: -2px;
+    }
+
+    &.is-primary {
+      background: $primary;
+
+      &:hover {
+        background: darken($primary, 5%);
+      }
+
+      &:focus {
+        background: darken($primary, 8%);
+        box-shadow: 0 0 0 4px rgba($primary, 0.3);
+      }
+    }
+
+    &.is-destructive {
+      background: $red;
+
+      &:hover {
+        background: darken($red, 5%);
+      }
+
+      &:focus {
+        background: darken($red, 8%);
+        box-shadow: 0 0 0 4px rgba($red, 0.3);
+      }
     }
   }
 

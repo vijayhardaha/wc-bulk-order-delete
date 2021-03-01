@@ -1,0 +1,86 @@
+.bod-ui__progress-block {
+  width: 100%;
+  max-width: 100%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background-color: $white;
+
+  .bod-ui__progress {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    .bod-ui__progress-icon {
+      margin-right: 5px;
+    }
+
+    .bod-ui__progress-text {
+      min-width: 40px;
+      flex: 0 0 auto;
+      text-align: center;
+      color: $text-color;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .bod-ui__progress-bar {
+      height: 10px;
+      overflow: hidden;
+      flex: 1;
+      margin-left: 5px;
+      border-radius: 4px;
+      background-color: $border-color;
+
+      span {
+        width: 0px;
+        height: 100%;
+        display: block;
+        background-color: $blue;
+      }
+    }
+  }
+
+  .bod-ui__progress-cancel {
+    height: auto;
+    margin-left: 10px;
+    padding: 0;
+    cursor: pointer;
+    letter-spacing: -0.25px;
+    text-transform: uppercase;
+    color: $text-color;
+    border: 0;
+    outline: 0 !important;
+    background: 0;
+    box-shadow: none !important;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+  }
+}
+
+.bod-ui__progress-state {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  color: $text-color;
+  font-size: 13px;
+
+  &>span {
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+
+  .hightlight {
+    color: #666;
+    background-color: #F8F8F8;
+  }
+}

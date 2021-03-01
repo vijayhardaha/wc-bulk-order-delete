@@ -120,13 +120,17 @@ const SearchStep = ({
 				</div>
 			</div>
 			<div className="bod-ui__panel-footer">
-				<Button onClick={() => findOrders()}>
+				<Button
+					className="bod-ui__button"
+					isPrimary
+					onClick={() => findOrders()}
+				>
 					<span className="icon">
 						<CgSearch />
 					</span>
 					<span class="text">{__("Find Orders", TEXT_DOMAIN)}</span>
 				</Button>
-				<Button className="alt" onClick={() => reset()}>
+				<Button className="bod-ui__button" onClick={() => reset()}>
 					<span className="icon">
 						<CgClose />
 					</span>

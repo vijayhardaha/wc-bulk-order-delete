@@ -95,6 +95,7 @@ class WC_Bulk_Order_Delete_Admin {
 		if ( ! $this->is_allowed_to_delete_shop_order() ) {
 			return;
 		}
+
 		add_action(
 			'rest_api_init',
 			function() {
@@ -102,8 +103,8 @@ class WC_Bulk_Order_Delete_Admin {
 					'wc-bulk-order-delete/v1',
 					'/(?P<id>[\d]+)',
 					array(
-						'methods'             => WP_REST_Server::READABLE,
-						'callback'            => array( $this, 'delete_shop_order' ),
+						'methods'             => WP_REST_Server::DELETABLE,
+						'callback'            => array( $this, 'delete_order' ),
 						'permission_callback' => array( $this, 'is_allowed_to_delete_shop_order' ),
 						'args'                => array(
 							'force' => array(
@@ -157,8 +158,69 @@ class WC_Bulk_Order_Delete_Admin {
 		return current_user_can( 'delete_shop_orders' ) && current_user_can( 'delete_others_shop_orders' );
 	}
 
-	public function delete_shop_order( $request ) {
-		return rest_ensure_response( 'Hello World, this is the WordPress REST API' );
+	/**
+	 * Delete a single order.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return WP_REST_Response|WP_Error
+	 */
+	public function delete_order( $request ) {
+		$force  = (bool) $request['force'];
+		$object = wc_get_order( (int) $request['id'] );
+		$result = false;
+
+		if ( ! $object || 0 === $object->get_id() ) {
+			return new WP_Error( 'woocommerce_rest_shop_order_invalid_id', __( 'Invalid ID.', 'woocommerce' ), array( 'status' => 404 ) );
+		}
+
+		$supports_trash = EMPTY_TRASH_DAYS > 0 && is_callable( array( $object, 'get_status' ) );
+
+		/**
+		 * Filter whether an object is trashable.
+		 *
+		 * Return false to disable trash support for the object.
+		 *
+		 * @param boolean $supports_trash Whether the object type support trashing.
+		 * @param WC_Data $object         The object being considered for trashing support.
+		 */
+		$supports_trash = apply_filters( 'woocommerce_rest_shop_order_object_trashable', $supports_trash, $object );
+
+		if ( ! wc_rest_check_post_permissions( 'shop_order', 'delete', $object->get_id() ) ) {
+			/* translators: %s: post type */
+			return new WP_Error( 'woocommerce_rest_user_cannot_delete_shop_order', sprintf( __( 'Sorry, you are not allowed to delete %s.', 'woocommerce' ), 'shop_order' ), array( 'status' => rest_authorization_required_code() ) );
+		}
+
+		$response = array( 'success' => true );
+
+		// If we're forcing, then delete permanently.
+		if ( $force ) {
+			$object->delete( true );
+			$result = 0 === $object->get_id();
+		} else {
+			// If we don't support trashing for this type, error out.
+			if ( ! $supports_trash ) {
+				/* translators: %s: post type */
+				return new WP_Error( 'woocommerce_rest_trash_not_supported', sprintf( __( 'The %s does not support trashing.', 'woocommerce' ), 'shop_order' ), array( 'status' => 501 ) );
+			}
+
+			// Otherwise, only trash if we haven't already.
+			if ( is_callable( array( $object, 'get_status' ) ) ) {
+				if ( 'trash' === $object->get_status() ) {
+					/* translators: %s: post type */
+					return new WP_Error( 'woocommerce_rest_already_trashed', sprintf( __( 'The %s has already been deleted.', 'woocommerce' ), 'shop_order' ), array( 'status' => 410 ) );
+				}
+
+				$object->delete();
+				$result = 'trash' === $object->get_status();
+			}
+		}
+
+		if ( ! $result ) {
+			/* translators: %s: post type */
+			return new WP_Error( 'woocommerce_rest_cannot_delete', sprintf( __( 'The %s cannot be deleted.', 'woocommerce' ), 'shop_order' ), array( 'status' => 500 ) );
+		}
+
+		return $response;
 	}
 
 	/**
@@ -195,6 +257,10 @@ class WC_Bulk_Order_Delete_Admin {
 		$orders  = wc_get_orders( $args );
 		$objects = array();
 		foreach ( $orders as $object ) {
+			if ( ! wc_rest_check_post_permissions( 'shop_order', 'read', $object->get_id() ) ) {
+				continue;
+			}
+
 			$data      = array(
 				'id'           => $object->get_id(),
 				'date'         => $object->get_date_created() ? $object->get_date_created()->date( 'Y-m-d H:i:s' ) : '',

@@ -3,65 +3,23 @@
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: flex-start;
   margin: 0 0 15px 0;
   padding: 0;
-  background: $white;
   color: #666;
   border: 1px solid #e6e6e6;
+  border-left-width: 2px;
+  border-left-color: #aaa;
   border-radius: $border-radius;
+  background: $white;
 
   @each $type,
   $color in $notice-colors {
-    @each $style in $notice-styles {
-      $notice-color: $color;
-      $notice-bg: $white;
-      $notice-icon-color: $color;
+    &.bod-ui__notice-#{$type} {
+      border-left-color: $color;
 
-      @if $style=="filled" {
-        $notice-color: $white;
-        $notice-bg: $color;
-        $notice-icon-color: $white;
-      }
-
-      @else if $style=="semi-filled" {
-        $notice-bg: $color;
-        $notice-icon-color: $white;
-      }
-
-      @else if $style=="simple" {
-        $notice-bg: lighten($color, 40%);
-
-        @if ($type=="info"or $type=="warning"or $type=="error") {
-          $notice-bg: lighten($color, 25%);
-        }
-      }
-
-      &.bod-ui__notice-#{$style}-#{$type} {
-        @if $style=="outline" {
-          border-left-color: $color;
-        }
-
-        @else {
-          color: $notice-color;
-          border-color: $notice-color;
-          background: $notice-bg;
-        }
-
-        .bod-ui__notice-icon {
-          color: $notice-icon-color;
-
-          @if $style=="semi-filled" {
-            background: $color;
-          }
-
-          @if ($style=="simple"or $style=="outline") {
-            .bod-ui__spinner {
-              border-color: rgba($color, 0.2);
-              border-left-color: $color;
-            }
-          }
-        }
+      .bod-ui__notice-icon {
+        color: $color;
       }
     }
   }
@@ -75,33 +33,18 @@
     align-items: center;
     justify-content: center;
     flex: 0 0 40px;
+    padding: 14px 0 0 0;
 
     svg {
-      width: 24px;
-      height: 24px;
+      width: 16px;
+      height: 16px;
     }
   }
 
   .bod-ui__notice-content {
     flex-grow: 1;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 0;
     letter-spacing: 0.16px;
     line-height: 1.5;
-  }
-
-  &[class*="notice-outline"] {
-    border-left-width: 2px;
-  }
-
-  &[class*="notice-semi-filled"] {
-    .bod-ui__notice-content {
-      background: $white;
-    }
-  }
-
-  &.has-icon:not([class*="notice-semi-filled"]) {
-    .bod-ui__notice-content {
-      padding-left: 0;
-    }
   }
 }

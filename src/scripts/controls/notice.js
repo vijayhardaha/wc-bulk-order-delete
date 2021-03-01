@@ -6,56 +6,32 @@
  * External dependancies
  */
 import classnames from "classnames";
-import {
-	MdDone,
-	MdClose,
-	MdChatBubbleOutline,
-	MdErrorOutline,
-} from "react-icons/md";
+import { FiCheckCircle, FiAlertCircle, FiInfo } from "react-icons/fi";
 
-const Notice = ({
-	type = "filled",
-	status = "info",
-	icon = true,
-	loading = false,
-	children,
-}) => {
-	const types = ["filled", "outline", "semi-filled", "simple"];
-	const statuses = ["error", "info", "success", "warning", "default"];
+const Notice = ({ type = "", loading = false, children }) => {
+	const types = ["error", "info", "success", "warning"];
 
 	const icons = {
-		error: <MdClose />,
-		info: <MdChatBubbleOutline />,
-		default: <MdChatBubbleOutline />,
-		success: <MdDone />,
-		warning: <MdErrorOutline />,
+		error: <FiAlertCircle />,
+		info: <FiInfo />,
+		success: <FiCheckCircle />,
+		warning: <FiInfo />,
 	};
 
-	status = statuses.includes(status) ? status : "info";
-	type = types.includes(type) ? type : "filled";
-	icon = loading ? true : icon;
-
-	const classNames = classnames(
-		"bod-ui__notice",
-		`bod-ui__notice-${type}-${status}`,
-		{
-			"has-icon": icon,
-		}
-	);
+	const typeClass = types.includes(type) ? `bod-ui__notice-${type}` : "";
+	const classNames = classnames("bod-ui__notice", typeClass);
 
 	const iconControl = loading ? (
 		<div class="bod-ui__spinner"></div>
+	) : typeof icons[type] !== undefined ? (
+		icons[type]
 	) : (
-		icons[status]
+		<FiInfo />
 	);
 
 	return (
 		<div className={classNames}>
-			{icon == true ? (
-				<div className="bod-ui__notice-icon">{iconControl}</div>
-			) : (
-				<></>
-			)}
+			<div className="bod-ui__notice-icon">{iconControl}</div>
 			<div className="bod-ui__notice-content">{children}</div>
 		</div>
 	);

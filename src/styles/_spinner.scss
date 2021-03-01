@@ -3,19 +3,14 @@
   margin: auto;
   transform: translateZ(0);
   animation: noticeSpinner 1.1s infinite linear;
-  border: 3px solid rgba($white, 0.2);
-  border-left-color: $white;
-
-  &.colored {
-    border: 3px solid rgba(map-get($notice-colors, "info"), 0.2);
-    border-left-color: map-get($notice-colors, "info");
-  }
+  border: 2px solid rgba($black, .1);
+  border-left-color: #767676;
 }
 
 .bod-ui__spinner,
 .bod-ui__spinner::after {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
 }
 
