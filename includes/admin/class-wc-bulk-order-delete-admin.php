@@ -35,6 +35,16 @@ class WC_Bulk_Order_Delete_Admin {
 			return;
 		}
 
+		$count = 0;
+		foreach ( wc_get_order_statuses() as $slug => $name ) {
+			$status = str_replace( 'wc-', '', $slug );
+			$count += wc_orders_count( $status );
+		}
+
+		if ( $count <= 0 ) {
+			return;
+		}
+
 		$this->register_api();
 
 		// Enqueue scripts.
@@ -220,7 +230,7 @@ class WC_Bulk_Order_Delete_Admin {
 			return new WP_Error( 'woocommerce_rest_cannot_delete', sprintf( __( 'The %s cannot be deleted.', 'woocommerce' ), 'shop_order' ), array( 'status' => 500 ) );
 		}
 
-		return $response;
+		return rest_ensure_response( $response );
 	}
 
 	/**

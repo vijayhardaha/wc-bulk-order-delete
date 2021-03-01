@@ -45,7 +45,6 @@ const Panel = ({ isPanelOpen, closePanel }) => {
 
 		if (ref.current.contains(e.target)) return;
 
-		reset();
 		closePanel();
 	};
 

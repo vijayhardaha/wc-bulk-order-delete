@@ -16,3 +16,10 @@ export const getOrders = (data) => {
 		data,
 	});
 };
+
+export const deleteOrder = (id) => {
+	return apiFetch({
+		path: `/wc-bulk-order-delete/v1/${id}`,
+		method: "DELETE",
+	});
+};

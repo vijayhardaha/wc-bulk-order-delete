@@ -1,5 +1,6 @@
 .bod-ui__notice {
   position: relative;
+  min-height: 42px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -29,11 +30,13 @@
   }
 
   .bod-ui__notice-icon {
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 40px;
-    padding: 14px 0 0 0;
+    margin: 0;
+    padding: 0;
 
     svg {
       width: 16px;

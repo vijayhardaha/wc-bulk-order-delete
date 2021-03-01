@@ -15,6 +15,7 @@ import { CgArrowLeft } from "react-icons/cg";
  */
 import { TEXT_DOMAIN } from "../../utils/constants";
 import Notice from "../../controls/notice";
+import { deleteOrder } from "../../services/api";
 
 const DeleteStep = ({ loading, orders, reset, setLoading }) => {
 	const [success, setSuccess] = useState("");
@@ -24,16 +25,11 @@ const DeleteStep = ({ loading, orders, reset, setLoading }) => {
 	const [items, setItem] = useState(orders.map((order) => order));
 	const cancelled = useRef(false);
 
-	const fx = (prop) =>
-		new Promise((resolve) => setTimeout(resolve, 500, prop)).then((data) =>
-			console.log(data)
-		);
-
 	const completed = () => Math.round((processed.length / orders.length) * 100);
 
 	const deleteOrders = async () => {
 		if (!items.length || cancelled.current) {
-			//	setLoading(false);
+			setLoading(false);
 			return;
 		}
 
@@ -42,7 +38,29 @@ const DeleteStep = ({ loading, orders, reset, setLoading }) => {
 		const order = items[0];
 		setCurrent(order.id);
 
-		await fx(order.id);
+		await deleteOrder(order.id)
+			.then((response) => {
+				if (response.success) {
+					setSuccess(
+						__(`Order #${order.id} delete successfully.`, TEXT_DOMAIN)
+					);
+				} else {
+					setError(() => {
+						const _errors = errors;
+						_errors.push(__(`Order #${order.id} delete failed.`, TEXT_DOMAIN));
+						return _errors;
+					});
+				}
+			})
+			.catch((error) => {
+				setError(() => {
+					const _errors = errors;
+					_errors.push(
+						__(`Order #${order.id} : ${error.message}`, TEXT_DOMAIN)
+					);
+					return _errors;
+				});
+			});
 
 		setProcessed(() => {
 			const updated = processed;
@@ -55,8 +73,6 @@ const DeleteStep = ({ loading, orders, reset, setLoading }) => {
 			remaining.shift();
 			return remaining;
 		});
-
-		setSuccess(__(`Order #${order.id} delete successfully.`, TEXT_DOMAIN));
 
 		deleteOrders();
 	};
@@ -116,7 +132,40 @@ const DeleteStep = ({ loading, orders, reset, setLoading }) => {
 		</div>
 	) : (
 		<>
-			<div className="bod-ui__panel-body"></div>
+			<div className="bod-ui__panel-body">
+				<Notice type="success">
+					{__(
+						"Process completed. Please reload the current page to see the new orders data in orders table.",
+						TEXT_DOMAIN
+					)}
+				</Notice>
+				<ul className="bod-ui__orders-summary">
+					<li>
+						<span className="list-label">
+							{__("Total orders", TEXT_DOMAIN)}
+						</span>
+						<span className="list-status">{orders.length}</span>
+					</li>
+					<li>
+						<span className="list-label">{__("Processed", TEXT_DOMAIN)}</span>
+						<span className="list-status">{processed.length}</span>
+					</li>
+					<li>
+						<span className="list-label">
+							{__("Successfully deleted", TEXT_DOMAIN)}
+						</span>
+						<span className="list-status">
+							{processed.length - errors.length}
+						</span>
+					</li>
+					<li>
+						<span className="list-label">
+							{__("Failed to delete", TEXT_DOMAIN)}
+						</span>
+						<span className="list-status">{errors.length}</span>
+					</li>
+				</ul>
+			</div>
 			<div className="bod-ui__panel-footer">
 				<Button className="bod-ui__button" onClick={() => reset()}>
 					<span className="icon">
